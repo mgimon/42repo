@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:55 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/18 22:23:52 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/01/19 22:09:03 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <xlocale.h>
 #include <stdlib.h>
+#include <errno.h>
 
 int		ft_isalnum(int c);
 
@@ -60,3 +61,11 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 int		ft_atoi(const char *str);
+
+void	*ft_calloc(size_t count, size_t size);
+
+char	*ft_strdup(const char *s1);
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+char	*ft_strjoin(char const *s1, char const *s2);
