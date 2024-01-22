@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:55 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/19 22:09:03 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/01/22 22:23:02 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(char const *s1, char const *s2);
+
+char	*ft_strtrim(char const *s1, char const *set);
+
+char	*ft_itoa(int n);
