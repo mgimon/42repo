@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:19:19 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/22 22:23:14 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:57:23 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ static int	digit_counter(int n)
 	return (i);
 }
 
-static void	validate_sign(int *n, int *sign)
+static void	validate_sign(int *n, int *i, char **buffer)
 {
 	if (*n < 0)
 	{
-		*sign = -(*sign);
+		*buffer[*i] = '-';
 		*n = -(*n);
+		(*i)++;
 	}
 }
 
@@ -70,24 +71,17 @@ char	*ft_itoa(int n)
 	char	*result;
 	int		digits;
 	int		i;
-	int		sign;
 
 	i = 0;
 	digits = digit_counter(n);
-	sign = 1;
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	validate_sign(&n, &sign);
 	buffer = malloc(digits + 1);
 	if (buffer == NULL)
 		return (NULL);
-	if (sign < 0)
-	{
-		buffer[i] = '-';
-		i++;
-	}
+	validate_sign(&n, &i, &buffer);
 	while (n > 0)
 	{
 		buffer[i] = n % 10 + '0';
