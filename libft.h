@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:55 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/23 19:28:24 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:43:37 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,3 +82,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
