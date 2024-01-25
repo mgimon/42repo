@@ -36,6 +36,7 @@ SRCS		= ft_memset.c \
 			  ft_putnbr_fd.c \
 			  ft_strmapi.c \
 			  ft_striteri.c \
+			  ft_split.c \
 				
 OBJS		= $(SRCS:%.c=%.o)
 
