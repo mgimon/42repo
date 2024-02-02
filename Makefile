@@ -37,10 +37,14 @@ SRCS		= ft_memset.c \
 			  ft_strmapi.c \
 			  ft_striteri.c \
 			  ft_split.c \
+
+BNS_SRCS	= ft_lstnew.c \
 				
 OBJS		= $(SRCS:%.c=%.o)
 
-.PHONY		= all clean fclean re #bonus
+BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
+
+.PHONY		= all clean fclean re bonus
 
 all: $(NAME)
 
@@ -50,6 +54,9 @@ AR_FLAGS	= rc
 
 $(NAME): $(OBJS)
 	ar $(AR_FLAGS) $@ $?
+
+bonus: $(BNS_OBJS)
+	ar $(AR_FLAGS) $(NAME) $(BNS_OBJS)
 
 %.o: %.c Makefile $(HEADER)
 	cc $(FLAGS) -c $< -o $@

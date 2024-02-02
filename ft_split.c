@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:53 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/25 18:10:49 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:59:54 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	size_t	i;
-	size_t	j;
 
 	delimiter_runner(&s, c);
 	result = (char **)malloc((arg_counter(s, c) + 1) * sizeof(char *));
@@ -75,13 +74,12 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s != '\0')
 	{
-		j = 0;
 		while ((char)*s == c)
 			s++;
 		result[i] = (char *)malloc((arg_len(s, c) + 1) * sizeof(char));
 		if (result[i] == NULL)
 			return (free_memory(result, i));
-		strlcpy(result[i], s, arg_len(s, c) + 1);
+		ft_strlcpy(result[i], s, arg_len(s, c) + 1);
 		s = s + arg_len(s, c);
 		i++;
 		delimiter_runner(&s, c);
