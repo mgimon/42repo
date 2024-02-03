@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:55 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/02/02 22:40:16 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/02/03 21:00:10 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,3 +97,11 @@ typedef struct s_list
 }					t_list;
 
 t_list				*ft_lstnew(void *content);
+
+void				ft_lstadd_front(t_list **lst, t_list *new);
+
+int					ft_lstsize(t_list *lst);
+
+t_list				*ft_lstlast(t_list *lst);
+
+void				ft_lstadd_back(t_list **lst, t_list *new);

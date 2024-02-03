@@ -39,6 +39,10 @@ SRCS		= ft_memset.c \
 			  ft_split.c \
 
 BNS_SRCS	= ft_lstnew.c \
+			  ft_lstadd_front.c \
+			  ft_lstsize.c \
+			  ft_lstlast.c \
+			  ft_lstadd_back.c \
 				
 OBJS		= $(SRCS:%.c=%.o)
 
