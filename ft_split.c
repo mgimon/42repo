@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:53 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/02/05 11:10:32 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:50:23 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	arg_counter(char const *s, char c)
 		args++;
 		while (s[i] != '\0')
 		{
-			if ((char)s[i] == c && s[i + 1] != c)
+			if ((char)s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 				args++;
 			i++;
 		}
@@ -47,10 +47,7 @@ static char	**free_memory(char **result, size_t i)
 	if (result != NULL)
 	{
 		while (i > 0)
-		{
 			free(result[--i]);
-			i--;
-		}
 		free(result);
 	}
 	return (NULL);
