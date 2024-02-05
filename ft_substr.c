@@ -6,11 +6,29 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 20:32:32 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/01/19 22:04:33 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:17:54 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// verificamos si la longitud solicitada para la substr
+// es + que la longitud restante de la str
+// a partir de la posicion start.
+// Si es asi, ajusto len para que sea =
+// a la longitud restante de la cadena
+
+static void	len_adjust(size_t *len, char const *s, unsigned int start)
+{
+	if (*len > ft_strlen(s + start))
+		*len = ft_strlen(s + start);
+}
+
+static void	index_move(size_t *i, size_t *j)
+{
+	(*i)++;
+	(*j)++;
+}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -22,11 +40,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= ft_strlen(s))
 	{
 		resultado = malloc(1);
+		if (resultado == NULL)
+			return (NULL);
 		resultado[i] = '\0';
 		return (resultado);
 	}
-	if (len > ft_strlen(s + start))
-		len = ft_strlen(s + start);
+	len_adjust(&len, s, start);
 	resultado = malloc(len + 1);
 	if (resultado == NULL)
 		return (NULL);
@@ -34,8 +53,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	while (s[j] != '\0' && i < len)
 	{
 		resultado[i] = s[j];
-		i++;
-		j++;
+		index_move(&i, &j);
 	}
 	resultado[i] = '\0';
 	return (resultado);
