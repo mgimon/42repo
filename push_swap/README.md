@@ -42,7 +42,7 @@ instrucciones para manipular ambos. Deberás utilizar el minimo de instrucciones
 | Menos de 10000 | 2 |
 | Menos de 11500 | 1 |
 
-# TESTER ✅🆗
+# TESTER ✅
 
 Download testers by gemartin99:
 https://github.com/gemartin99/Push-Swap-Tester
@@ -50,10 +50,8 @@ https://github.com/gemartin99/Push-Swap-Tester
 Execute:
 bash push_swap_test.sh
 
-### - Mi progresion en el common core 42 ↙️
-
-[AQUÍ](https://github.com/mgimon-c/42cursus)
-
 ### - Mi perfil en la intranet de 42 ↙️
 [AQUÍ](https://profile.intra.42.fr/users/mgimon-c)
 
+### - Mi perfil de LinkedIn ↙️
+[AQUÍ](https://www.linkedin.com/in/mgimon-c/)
