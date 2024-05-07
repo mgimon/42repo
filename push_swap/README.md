@@ -5,9 +5,9 @@ Push_swap is a simple algorithmic project where you need to sort data. You have 
 This project is an introduction to efficiency and it teaches different approaches to sorting algorithms.
 
 
-## Operaciones 🔁
+## Operations 🔁
 
-| Operaciones | Explicación |
+| Operations | Description |
 | :--- | :--- |
 | sa | swap a - swap the first two elements at the top of stack a. |
 | sb | swap b - swap the first two elements at the top of stack b. |
@@ -21,9 +21,9 @@ This project is an introduction to efficiency and it teaches different approache
 | rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
 | rrr | rra and rrb at the same time. |
 
-### 🔹 100 Numeros:
+### 🔹 100 Numbers:
 
-| Operations | Points |
+| Movements | Points |
 | :---: | :---: |
 | Less than 700 | 5 |
 | Less than 900 | 4 |
@@ -31,9 +31,9 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 1300 | 2 |
 | Less than 1500 | 1 |
 
-### 🔹 500 Numeros: 
+### 🔹 500 Numbers: 
 
-| Operaciones | Puntos |
+| Movements | Points |
 | :---: | :---: |
 | Less than 5500 | 5 |
 | Less than 7000 | 4 |
@@ -53,7 +53,7 @@ Note for this project:
 5/5 (A* search algorithm)
 
 ### - My profile on the 42 Intranet ↙️
-[AQUÍ](https://profile.intra.42.fr/users/mgimon-c)
+[HERE](https://profile.intra.42.fr/users/mgimon-c)
 
 ### - My LinkedIn profile ↙️
-[AQUÍ](https://www.linkedin.com/in/mgimon-c/)
+[HERE](https://www.linkedin.com/in/mgimon-c/)
