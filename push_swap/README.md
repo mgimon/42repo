@@ -5,7 +5,7 @@ Push_swap is a simple algorithmic project where you need to sort data. You have 
 This project is an introduction to efficiency and it teaches different approaches to sorting algorithms.
 
 
-## Operations 🔄
+## 🏃‍♂️ Operations
 
 | Operations | Description |
 | :--- | :--- |
