@@ -62,5 +62,5 @@ The objective of this project was to develop functions that have the same protot
 ### - My profile on the 42 Intranet 🔽
 [HERE](https://profile.intra.42.fr/users/mgimon-c)
 
-### - My LinkedIn profile ↙️
+### - My LinkedIn profile 🔽
 [HERE](https://www.linkedin.com/in/mgimon-c/)
