@@ -1,8 +1,8 @@
-## Sobre libft
+## About libft
 
-El objetivo de este proyecto fue desarrollar funciones que tienen los mismos prototipos e implementan los mismos comportamientos que las funciones originales de la libc (por ejemplo, ft_atoi recrea el comportamiento de atoi). Deberán ser tal y como las describe el man. Ademas, se han de desarrollar un conjunto de funciones que, o no son de la libc, o lo son pero de una forma distinta.
+The objective of this project was to develop functions that have the same prototypes and implement the same behaviors as the original functions in the libc (for example, ft_atoi recreates the behavior of atoi). They must be as described in the man pages. Additionally, a set of functions must be developed that either are not in the libc or are in a different form.
 
-### 🔹 Funciones de la libc:
+### 🔹 Functions from the libc:
 
 • isalpha
 • isdigit
@@ -28,40 +28,39 @@ El objetivo de este proyecto fue desarrollar funciones que tienen los mismos pro
 • calloc
 • strdup
 
-### 🔹 Funciones extra:
+### 🔹 Extra functions:
 
 | Funcion | Descripcion |
 | :---: | :---: |
-| ft_substr | Reserva (con malloc(3)) y devuelve una substring de la string ’s’. La substring empieza desde el índice ’start’ y tiene una longitud máxima ’len’. |
-| ft_strjoin | Reserva (con malloc(3)) y devuelve una nueva string, formada por la concatenación de ’s1’ y ’s2’. |
-| ft_strtrim | Elimina todos los caracteres de la string ’set’ desde el principio y desde el final de ’s1’, hasta encontrar un caracter no perteneciente a ’set’. La string resultante se devuelve con una reserva de malloc(3) |
-| ft_split | Reserva (utilizando malloc(3)) un array de strings resultante de separar la string ’s’ en substrings utilizando el caracter ’c’ como delimitador. El array debe terminar con un puntero NULL. |
-| ft_itoa | Utilizando malloc(3), genera una string que represente el valor entero recibido como argumento. Los números negativos tienen que gestionarse. |
-| ft_strmapi | A cada carácter de la string ’s’, aplica la función ’f’ dando como parámetros el índice de cada carácter dentro de ’s’ y el propio carácter. Genera una nueva string con el resultado del uso sucesivo de ’f’. |
-| ft_striteri | A cada carácter de la string ’s’, aplica la función ’f’ dando como parámetros el índice de cada carácter dentro de ’s’ y la dirección del propio carácter, que podrá modificarse si es necesario. |
-| ft_putchar_fd | Envía el carácter ’c’ al file descriptor especificado. |
-| ft_putstr_fd | Envía la string ’s’ al file descriptor especificado. |
-| ft_putendl_fd | Envía la string ’s’ al file descriptor especificado, seguida de un salto de linea. |
-| ft_putnbr_fd | Envía el entero ’n’ al file descriptor especificado. |
+| ft_substr | Allocates (with malloc(3)) and returns a substring from the string ’s’. The substring begins at index ’start’ and is of maximum size ’len’. |
+| ft_strjoin | Allocates (with malloc(3)) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’. |
+| ft_strtrim | Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string. |
+| ft_split | Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. The array must be ended by a NULL pointer. |
+| ft_itoa | Allocates (with malloc(3)) and returns a string representing the integer received as an argument. Negative numbers must be handled. |
+| ft_strmapi | Applies the function ’f’ to each character of the string ’s’ to create a new string resulting from successive applications of ’f’. |
+| ft_striteri | Applies the function ’f’ to each character of the string ’s’ with its index as first argument. |
+| ft_putchar_fd | Outputs the character ’c’ to the given file descriptor. |
+| ft_putstr_fd | Outputs the string ’s’ to the given file descriptor. |
+| ft_putendl_fd | Outputs the string ’s’ to the given file descriptor, followed by a newline. |
+| ft_putnbr_fd | Outputs the integer ’n’ to the given file descriptor. |
 
 ### 🔹 Bonus:
 
 | Funcion | Descripcion |
 | :---: | :---: |
-| ft_lstnew | Crea un nuevo nodo utilizando malloc(3). La variable miembro ’content’ se inicializa con el contenido del parámetro ’content’. La variable ’next’, con NULL. |
-| ft_lstadd_front | Añade el nodo ’new’ al principio de la lista ’lst’. |
-| ft_lstsize | Cuenta el número de nodos de una lista. |
-| ft_lstlast | Devuelve el último nodo de la lista. |
-| ft_lstadd_back | Añade el nodo ’new’ al final de la lista ’lst’. |
-| ft_lstdelone | Toma como parámetro un nodo ’lst’ y libera la memoria del contenido utilizando la función ’del’ dada como parámetro, además de liberar el nodo. La memoria de ’next’ no debe liberarse. |
-| ft_lstclear | Elimina y libera el nodo ’lst’ dado y todos los consecutivos de ese nodo, utilizando la función ’del’ y free(3). Al final, el puntero a la lista debe ser NULL. |
-| ft_lstiter | Itera la lista ’lst’ y aplica la función ’f’ en el
-contenido de cada nodo. |
-| ft_lstmap | Itera la lista ’lst’ y aplica la función ’f’ al contenido de cada nodo. Crea una lista resultante de la aplicación correcta y sucesiva de la función ’f’ sobre cada nodo. La función ’del’ se utiliza para eliminar el contenido de un nodo, si hace falta. |
+| ft_lstnew | Allocates (with malloc(3)) and returns a new element. The variable ’content’ is initialized with the value of the parameter ’content’. The variable ’next’ is initialized to NULL. |
+| ft_lstadd_front | Adds the element ’new’ at the beginning of the list. |
+| ft_lstsize | Counts the number of elements in a list. |
+| ft_lstlast | Returns the last element of the list. |
+| ft_lstadd_back | Adds the element ’new’ at the end of the list. |
+| ft_lstdelone | Takes as a parameter an element and frees the memory of the element’s content using the function ’del’ given as a parameter, and free the element. The memory of ’next’ must not be freed. |
+| ft_lstclear | Deletes and frees the given element and every successor of that element, using the function ’del’ and free(3). Finally, the pointer to the list must be set to NULL. |
+| ft_lstiter | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. |
+| ft_lstmap | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. Creates a new list resulting from the successive applications of ’f’. |
 
 
-### - Mi perfil en la intranet de 42 ↙️
-[AQUÍ](https://profile.intra.42.fr/users/mgimon-c)
+### - My profile on the 42 Intranet ↙️
+[HERE](https://profile.intra.42.fr/users/mgimon-c)
 
-### - Mi perfil de LinkedIn ↙️
-[AQUÍ](https://www.linkedin.com/in/mgimon-c/)
+### - My LinkedIn profile ↙️
+[HERE](https://www.linkedin.com/in/mgimon-c/)

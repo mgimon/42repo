@@ -1,12 +1,12 @@
-## Sobre ft_printf
+## About ft_printf
 
-En este proyecto se debe reprogramar la funcion printf() de la libc. El objetivo de este proyecto es el manejo de las funciones variadicas en C.
+In this project, the printf() function of the libc must be reprogrammed. The objective of this project is the handling of variadic functions in C.
 
-### 🔹 Prototipo de la funcion:
+### 🔹 Function prototype:
 int	ft_printf(char const *fmt, ...)
 
-### - Mi perfil en la intranet de 42 ↙️
-[AQUÍ](https://profile.intra.42.fr/users/mgimon-c)
+### - My profile on the 42 Intranet ↙️
+[HERE](https://profile.intra.42.fr/users/mgimon-c)
 
-### - Mi perfil de LinkedIn ↙️
-[AQUÍ](https://www.linkedin.com/in/mgimon-c/)
+### - My LinkedIn profile ↙️
+[HERE](https://www.linkedin.com/in/mgimon-c/)

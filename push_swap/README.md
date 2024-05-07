@@ -1,46 +1,45 @@
-## Sobre push_swap
+## About push_swap
 
-Push_swap es un proyecto de algoritmia simple, tienes que ordenar
-datos. Tienes a tu disposición un conjunto de valores int, dos stacks y un conjunto de
-instrucciones para manipular ambos. Deberás utilizar el minimo de instrucciones posible.
+Push_swap is a simple algorithmic project where you need to sort data. You have at your disposal a set of integer values, two stacks, and a set of instructions to manipulate both. Your goal is to use the minimum number of instructions possible.
 
+This project is an introduction to efficiency and it teaches different approaches to sorting algorithms.
 
 
 ## Operaciones 🔁
 
 | Operaciones | Explicación |
 | :--- | :--- |
-| sa | swap a - intercambia los dos primeros elementos encima del stack a. |
-| sb | swap b - intercambia los dos primeros elementos encima del stack b. |
-| ss | swap a y swap b a la vez. |
-| pa | push a -  toma el primer elemento del stack b y lo pone encima del stack a. |
-| pb | push b -  toma el primer elemento del stack a y lo pone encima del stack b. |
-| ra | rotate a - desplaza hacia arriba todos los elementos del stack a una posición, el primer elemento se convierte en el último. |
-| rb | rotate b - desplaza hacia arriba todos los elementos del stack b una posición, el primer elemento se convierte en el último. |
-| rr | ra y rb a la vez. |
-| rra | reverse rotate a - desplaza hacia abajo todos los elementos del stack a una posición, el último elemento se convierte en el primero. |
-| rrb | reverse rotate b - desplaza hacia abajo todos los elementos del stack b una posición, el último elemento se convierte en el primero. |
-| rrr | rra y rrb a la vez. |
+| sa | swap a - swap the first two elements at the top of stack a. |
+| sb | swap b - swap the first two elements at the top of stack b. |
+| ss | swap a and swap b at the same time. |
+| pa | push a - take the first element at the top of stack b and put it at the top of stack a. |
+| pb | push b - take the first element at the top of stack a and put it at the top of stack b. |
+| ra | rotate a - shift up all elements of stack a by one position. The first element becomes the last one. |
+| rb | rotate b - shift up all elements of stack b by one position. The first element becomes the last one. |
+| rr | ra and rb at the same time. |
+| rra | reverse rotate a - shift down all elements of stack a by one position. The last element becomes the first one. |
+| rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
+| rrr | rra and rrb at the same time. |
 
 ### 🔹 100 Numeros:
 
-| Operaciones | Puntos |
+| Operations | Points |
 | :---: | :---: |
-| Menos de 700 | 5 |
-| Menos de 900 | 4 |
-| Menos de 1100 | 3 |
-| Menos de 1300 | 2 |
-| Menos de 1500 | 1 |
+| Less than 700 | 5 |
+| Less than 900 | 4 |
+| Less than 1100 | 3 |
+| Less than 1300 | 2 |
+| Less than 1500 | 1 |
 
 ### 🔹 500 Numeros: 
 
 | Operaciones | Puntos |
 | :---: | :---: |
-| Menos de 5500 | 5 |
-| Menos de 7000 | 4 |
-| Menos de 8500 | 3 |
-| Menos de 10000 | 2 |
-| Menos de 11500 | 1 |
+| Less than 5500 | 5 |
+| Less than 7000 | 4 |
+| Less than 8500 | 3 |
+| Less than 10000 | 2 |
+| Less than 11500 | 1 |
 
 # TESTER ✅
 
@@ -50,8 +49,11 @@ https://github.com/gemartin99/Push-Swap-Tester
 Execute:
 bash push_swap_test.sh
 
-### - Mi perfil en la intranet de 42 ↙️
+Note for this project:
+5/5 (A* search algorithm)
+
+### - My profile on the 42 Intranet ↙️
 [AQUÍ](https://profile.intra.42.fr/users/mgimon-c)
 
-### - Mi perfil de LinkedIn ↙️
+### - My LinkedIn profile ↙️
 [AQUÍ](https://www.linkedin.com/in/mgimon-c/)
