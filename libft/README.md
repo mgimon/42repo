@@ -2,7 +2,7 @@
 
 The objective of this project was to develop functions that have the same prototypes and implement the same behaviors as the original functions in the libc (for example, ft_atoi recreates the behavior of atoi). They must be as described in the man pages. Additionally, a set of functions must be developed that either are not in the libc or are in a different form.
 
-### 🔹 Functions from the libc:
+### 🟠 Functions from the libc:
 
 • isalpha
 • isdigit
@@ -28,7 +28,7 @@ The objective of this project was to develop functions that have the same protot
 • calloc
 • strdup
 
-### 🔹 Extra functions:
+### 🟠 Extra functions:
 
 | Function | Description |
 | :---: | :---: |
@@ -44,7 +44,7 @@ The objective of this project was to develop functions that have the same protot
 | ft_putendl_fd | Outputs the string ’s’ to the given file descriptor, followed by a newline. |
 | ft_putnbr_fd | Outputs the integer ’n’ to the given file descriptor. |
 
-### 🔹 Bonus:
+### 🟠 Bonus:
 
 | Function | Description |
 | :---: | :---: |
@@ -59,7 +59,7 @@ The objective of this project was to develop functions that have the same protot
 | ft_lstmap | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. Creates a new list resulting from the successive applications of ’f’. |
 
 
-### - My profile on the 42 Intranet ↙️
+### - My profile on the 42 Intranet 🔽
 [HERE](https://profile.intra.42.fr/users/mgimon-c)
 
 ### - My LinkedIn profile ↙️
