@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:16:50 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/04/06 19:48:13 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:50:34 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ t_list	*first_node(t_list *stack_a)
 	while (stack_a->prev)
 		stack_a = stack_a->prev;
 	return (stack_a);
+}
+
+t_list	*get_last(t_list *lst)
+{
+	while (lst && lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)

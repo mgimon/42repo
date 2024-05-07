@@ -6,21 +6,27 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:14:44 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/04/08 22:18:30 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/05/06 19:41:31 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_list *head)
+void	exit_with_error(void)
 {
-	t_list	*current;
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-	current = head;
-	while (current != NULL)
+void	free_list_goodbye(t_list **lst)
+{
+	t_list	*lst_temp;
+
+	while (*lst != NULL)
 	{
-		printf("%d\n", current->content);
-		current = current->next;
+		lst_temp = (*lst)->next;
+		free(*lst);
+		*lst = lst_temp;
 	}
 }
 
@@ -34,7 +40,8 @@ void	get_args(int argc, char **argv, t_list **new_node, t_list **stack_a)
 	argv++;
 	while (*argv)
 	{
-		is_argv_invalid = is_repeated_or_invalid(*stack_a, ft_atoi(*argv, stack_a));
+		is_argv_invalid = is_repeated_or_invalid(*stack_a,
+				ft_atoi(*argv, stack_a));
 		if (is_argv_invalid > 0)
 			free_list_error(stack_a);
 		*new_node = create_node(ft_atoi(*argv, stack_a));
@@ -45,30 +52,51 @@ void	get_args(int argc, char **argv, t_list **new_node, t_list **stack_a)
 	}
 }
 
+void	error_checker(int argc, char **argv)
+{
+	char	*str;
+	int		i;
+
+	i = 1;
+	str = argv[i];
+	if (argc == 2)
+	{
+		if (ft_strcmp(str, "2147483648") == 0)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+	}
+	while (argv[i] != NULL)
+	{
+		if (ft_strcmp(argv[i], "") == 0 || ft_strcmp(argv[i], "-") == 0
+			|| ft_strcmp(argv[i], "+") == 0)
+		{
+			write(2, "Error\n", 6);
+			exit(1);
+		}
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*new_node;
 	t_list	*stack_a;
 	t_list	*stack_b;
+	int		size_a;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	stack_b = create_node(4);
-	stack_b->next = create_node(1);
+	error_checker(argc, argv);
 	get_args(argc, argv, &new_node, &stack_a);
-	printf("\n Stack_a contiene: \n");
-	print_list(stack_a);
-	printf("\n Stack_b contiene: \n");
-	print_list(stack_b);
-
-	printf("\n-----------------------------------\n");
-	push_b(&stack_a, &stack_b);
-	printf("-----------------------------------\n");
-
-	printf("\n Stack_a contiene: \n");
-	print_list(stack_a);
-	printf("\n Stack_b contiene: \n");
-	print_list(stack_b);
-	
+	size_a = node_counter(&stack_a);
+	stack_a->size = size_a;
+	is_sorted(&stack_a, size_a);
+	small_stack_sorting(&stack_a, &stack_b);
+	median_sort_push(&stack_a, &stack_b);
+	refill_sort_a(&stack_a, &stack_b);
+	raise_sorted_list_top(&stack_a);
+	free_list_goodbye(&stack_a);
 	return (0);
 }
