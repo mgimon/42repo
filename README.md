@@ -1,6 +1,6 @@
 ## About this repository
 
-I'm mgimon, a student at 42 Network Barcelona. This is a collection of all my projects to date. Each one focuses on mastering various useful tools or skills for programming and software development. Check them out!
+This is a collection of all my projects to date in my 42 Network Cursus in 42 Barcelona. Each one focuses on mastering various useful tools or skills for programming and software development. Check them out!
 
 ### - 🔹 Libft:
 [https://github.com/mgimon/42repo/tree/master/libft](https://github.com/mgimon/42repo/tree/master/libft)
