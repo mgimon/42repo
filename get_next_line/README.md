@@ -5,8 +5,7 @@ The objective of this project is handling static variables in C and correctly ma
 ### 🟠 Function prototype:
 char	*get_next_line(int fd) 
 
-### - My profile on the 42 Intranet 🔽
-[HERE](https://profile.intra.42.fr/users/mgimon-c)
+### 🔄 You may also like...
+[-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
-### - My LinkedIn profile 🔽
-[HERE](https://www.linkedin.com/in/mgimon-c/)
+[-> My LinkedIn profile](https://www.linkedin.com/in/mgimon-c/)
