@@ -5,8 +5,6 @@ In this project, the printf() function of the libc must be reprogrammed. The obj
 ### 🟠 Function prototype:
 int	ft_printf(char const *fmt, ...)
 
-### - My profile on the 42 Intranet 🔽
-[Click here](https://profile.intra.42.fr/users/mgimon-c)
-
-### - My LinkedIn profile 🔽
-[Click here](https://www.linkedin.com/in/mgimon-c/)
+### - You may also like... 🔽
+[My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
+[My LinkedIn profile](https://www.linkedin.com/in/mgimon-c/)
