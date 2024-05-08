@@ -59,8 +59,7 @@ The objective of this project was to develop functions that have the same protot
 | ft_lstmap | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. Creates a new list resulting from the successive applications of ’f’. |
 
 
-### - My profile on the 42 Intranet 🔽
-[HERE](https://profile.intra.42.fr/users/mgimon-c)
+### 🔄 You may also like...
+[-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
-### - My LinkedIn profile 🔽
-[HERE](https://www.linkedin.com/in/mgimon-c/)
+[-> My LinkedIn profile](https://www.linkedin.com/in/mgimon-c/)
