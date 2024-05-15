@@ -47,7 +47,7 @@ Compilation:
 Execute: make
 
 Execute:
-./push_swap <value1> <value2> <etc>
+./push_swap value1 value2 ... value500
 
 Or download multiple-input tester by gemartin99:
 https://github.com/gemartin99/Push-Swap-Tester
