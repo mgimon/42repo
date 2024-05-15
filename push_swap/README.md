@@ -43,10 +43,16 @@ This project is an introduction to efficiency and it teaches different approache
 
 # TESTER ✅
 
-Download testers by gemartin99:
-https://github.com/gemartin99/Push-Swap-Tester
+Compilation:
+Execute: make
 
 Execute:
+./push_swap <value1> <value2> <etc>
+
+Or download multiple-input tester by gemartin99:
+https://github.com/gemartin99/Push-Swap-Tester
+
+And execute:
 bash push_swap_test.sh
 
 Note for this project:
