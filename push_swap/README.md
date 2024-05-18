@@ -5,7 +5,7 @@ Push_swap is a simple algorithmic project where you need to sort data. You have 
 This project is an introduction to efficiency and it teaches different approaches to sorting algorithms.
 
 
-## Operations 🏃
+## 🟠 Operations
 
 | Operations | Description |
 | :--- | :--- |
@@ -21,7 +21,7 @@ This project is an introduction to efficiency and it teaches different approache
 | rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
 | rrr | rra and rrb at the same time. |
 
-### 🟠 100 Numbers:
+### ✅ 100 Numbers:
 
 | Movements | Points |
 | :---: | :---: |
@@ -31,7 +31,7 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 1300 | 2 |
 | Less than 1500 | 1 |
 
-### 🟠 500 Numbers: 
+### ✅ 500 Numbers: 
 
 | Movements | Points |
 | :---: | :---: |
@@ -41,7 +41,7 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 10000 | 2 |
 | Less than 11500 | 1 |
 
-# Compilation and Testing ✅
+# 🟠 Compilation and Testing
 
 Execute: 
 
