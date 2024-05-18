@@ -5,6 +5,8 @@ The objective of this project is handling static variables in C and correctly ma
 ### 🟠 Function prototype:
 char	*get_next_line(int fd) 
 
+##
+
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
