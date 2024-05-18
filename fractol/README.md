@@ -28,6 +28,8 @@ Execute:
 
 `make`
 
+and
+
 `./fractol mandelbrot`
 
 or
