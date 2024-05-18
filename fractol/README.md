@@ -27,11 +27,8 @@ The program offers Julia and Mandelbrot sets. Using miniLibX, the program should
 Execute:
 
 ```bash
-$ comando --opcion argumento
-resultado del comando
+make
 ```
-
-```make```
 
 and
 
