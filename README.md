@@ -5,6 +5,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 ##
 
 <br>
+
 <div align="center">
   <table style="width:80%; font-size: 20px;">
     <tr>
