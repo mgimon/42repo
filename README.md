@@ -2,8 +2,8 @@
 
 This is a collection of all my projects to date at 42 Network Barcelona. Each project is aimed at mastering various essential tools and skills for programming and software development. Check them out!
 
-<div align="center">
-  <table style="width:80%; font-size: 20px;">
+<div style="text-align:center; font-size:20px;">
+  <table style="width:80%;">
     <tr>
       <th colspan="2">Repositorio</th>
     </tr>
