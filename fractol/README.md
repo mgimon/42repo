@@ -32,7 +32,9 @@ make
 
 and
 
-`./fractol mandelbrot`
+```
+./fractol mandelbrot
+```
 
 or
 
