@@ -4,9 +4,9 @@
 
 ## 🟠 Some videos
 
-https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif
+(https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif)
 
-https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif
+(https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif)
 
 ## Requirements
 
