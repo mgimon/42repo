@@ -4,7 +4,11 @@
 
 ## 🟠 Some videos
 
-[![Mandelbrot GIF](https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif)](https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif){:width="300px"}
+[![Mandelbrot GIF](https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif)](https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif)
+
+<a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif">
+  <img src="https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif" width="300px">
+</a>
 
 
 
