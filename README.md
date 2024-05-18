@@ -7,7 +7,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
     <th colspan="2">Repositorio</th>
   </tr>
     <tr>
-    <td colspan="2"><a href="https://github.com/mgimon/42repo/tree/master/fractol">h</a>Fractol</td>
+    <td colspan="2"><a href="https://github.com/mgimon/42repo/tree/master/fractol">Fractol</a></td>
   </tr>
   <tr>
     <td><a href="https://github.com/mgimon/42repo/tree/master/push_swap">Repositorio 4</a></td>
