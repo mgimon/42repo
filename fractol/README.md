@@ -26,7 +26,7 @@ The program offers Julia and Mandelbrot sets. Using miniLibX, the program should
 
 Execute:
 
-```bash
+```
 make
 ```
 
@@ -38,7 +38,9 @@ and
 
 or
 
-`./fractol julia <value1> <value2>`
+```
+./fractol julia <value1> <value2>
+```
 
 ##
 
