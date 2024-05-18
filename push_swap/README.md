@@ -54,7 +54,7 @@ Or download multiple-input tester by gemartin99:
 `https://github.com/gemartin99/Push-Swap-Tester`
 
 And execute:
-`bash push_swap_test.sh`
+``bash push_swap_test.sh``
 
 Note for this project:
 5/5 (A* search algorithm)
