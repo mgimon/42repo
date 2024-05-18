@@ -17,7 +17,7 @@
   <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif">
     <img src="https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif" width="300px">
   </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif">
     <img src="https://github.com/mgimon/42repo/raw/master/fractol/gifs/julia_vid.gif" width="300px">
   </a>
