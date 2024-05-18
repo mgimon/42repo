@@ -42,7 +42,7 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 11500 | 1 |
 
 ##
-## 🟠 Compilation and Testing
+# 🟠 Compilation and Testing
 
 Execute: 
 
