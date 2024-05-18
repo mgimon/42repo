@@ -4,8 +4,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 <table>
   <tr>
-    <th>Repositorio</th>
-    <th>Repositorio</th>
+    <th colspan="2">Repositorio</th>
   </tr>
   <tr>
     <td>Fractol</td>
