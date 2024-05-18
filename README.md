@@ -22,6 +22,8 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
   </table>
 </div>
 
+<br>
+
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
