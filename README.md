@@ -25,6 +25,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 </div>
 
 <br>
+
 ##
 
 ### 🔄 You may also like...
