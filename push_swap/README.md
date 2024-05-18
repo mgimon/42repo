@@ -41,9 +41,7 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 10000 | 2 |
 | Less than 11500 | 1 |
 
-# TESTER ✅
-
-Compilation
+# ✅ Compilation and Testing
 
 Execute: 
 
@@ -51,7 +49,7 @@ Execute:
 make
 ```
 
-Execute:
+Then execute:
 ```
 ./push_swap value1 value2 ... value500
 ```
