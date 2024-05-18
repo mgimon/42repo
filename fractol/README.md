@@ -4,7 +4,8 @@
 
 ## 🟠 Some videos
 
-[![](https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif =300x)](https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif)
+[![Mandelbrot GIF](https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif)](https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif)
+
 
 
 (https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif)
