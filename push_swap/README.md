@@ -5,7 +5,7 @@ Push_swap is a simple algorithmic project where you need to sort data. You have 
 This project is an introduction to efficiency and it teaches different approaches to sorting algorithms.
 
 
-## Operations 🔁
+## Operations 🏃
 
 | Operations | Description |
 | :--- | :--- |
@@ -21,7 +21,7 @@ This project is an introduction to efficiency and it teaches different approache
 | rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
 | rrr | rra and rrb at the same time. |
 
-### 🔹 100 Numbers:
+### 🟠 100 Numbers:
 
 | Movements | Points |
 | :---: | :---: |
@@ -31,7 +31,7 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 1300 | 2 |
 | Less than 1500 | 1 |
 
-### 🔹 500 Numbers: 
+### 🟠 500 Numbers: 
 
 | Movements | Points |
 | :---: | :---: |
@@ -43,17 +43,22 @@ This project is an introduction to efficiency and it teaches different approache
 
 # TESTER ✅
 
-Download testers by gemartin99:
-https://github.com/gemartin99/Push-Swap-Tester
+Compilation:
+Execute: make
 
 Execute:
+./push_swap value1 value2 ... value500
+
+Or download multiple-input tester by gemartin99:
+https://github.com/gemartin99/Push-Swap-Tester
+
+And execute:
 bash push_swap_test.sh
 
 Note for this project:
 5/5 (A* search algorithm)
 
-### - My profile on the 42 Intranet ↙️
-[HERE](https://profile.intra.42.fr/users/mgimon-c)
+### 🔄 You may also like...
+[-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
-### - My LinkedIn profile ↙️
-[HERE](https://www.linkedin.com/in/mgimon-c/)
+[-> My LinkedIn profile](https://www.linkedin.com/in/mgimon-c/)
