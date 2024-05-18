@@ -58,6 +58,7 @@ The objective of this project was to develop functions that have the same protot
 | ft_lstiter | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. |
 | ft_lstmap | Iterates the list ’lst’ and applies the function ’f’ to the content of each element. Creates a new list resulting from the successive applications of ’f’. |
 
+##
 
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
