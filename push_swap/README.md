@@ -1,4 +1,4 @@
-## About push_swap
+# About push_swap
 
 Push_swap is a simple algorithmic project where you need to sort data. You have at your disposal a set of integer values, two stacks, and a set of instructions to manipulate both. Your goal is to use the minimum number of instructions possible.
 
@@ -41,8 +41,9 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 10000 | 2 |
 | Less than 11500 | 1 |
 
-##
-# 🟠 Compilation and Testing
+
+## 🟠 Compilation and Testing
+
 
 Execute: 
 
