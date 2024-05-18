@@ -13,11 +13,11 @@
   </a>
 </div>
 
-<div style="display: flex; justify-content: space-between;">
+<div>
   <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/mandelbrot_vid.gif" style="margin-right: 20px;">
     <img src="https://github.com/mgimon/42repo/raw/master/fractol/gifs/mandelbrot_vid.gif" width="300px">
   </a>
-  <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif">
+  <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/julia_vid.gif" style="margin-left: 20px;">
     <img src="https://github.com/mgimon/42repo/raw/master/fractol/gifs/julia_vid.gif" width="300px">
   </a>
 </div>
