@@ -67,6 +67,8 @@ bash push_swap_test.sh
 Note for this project:
 5/5 (A* search algorithm)
 
+##
+
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
 
