@@ -4,7 +4,6 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 <table>
   <tr>
-    <th>Proyecto</th>
     <th>Repositorio</th>
   </tr>
   <tr>
