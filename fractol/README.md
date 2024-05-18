@@ -26,7 +26,7 @@ The program offers Julia and Mandelbrot sets. Using miniLibX, the program should
 
 Execute:
 
-`make`
+```make```
 
 and
 
