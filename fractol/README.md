@@ -14,7 +14,7 @@
   </a>
 </div>
 
-## Requirements
+## 🟠 Requirements
 
 The program offers Julia and Mandelbrot sets. Using miniLibX, the program should:
 - Calculate points belonging to the Mandelbrot and Julia sets.
@@ -22,7 +22,7 @@ The program offers Julia and Mandelbrot sets. Using miniLibX, the program should
 - Display this image in a window and keep it open. The user can close it at any time without memory leaks.
 - Upon mouse or keyboard events, recalculate the fractal and refresh the image in the window. This way, the user can navigate through the fractal and zoom infinitely (within the limits of the computer).
 
-## Compilation
+## 🟠 Compilation
 
 Execute:
 
