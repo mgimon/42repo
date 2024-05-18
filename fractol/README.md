@@ -20,7 +20,7 @@ The program offers Julia and Mandelbrot sets. Using miniLibX, the program should
 - Calculate points belonging to the Mandelbrot and Julia sets.
 - Create an image with these points referenced by a pointer within a structure.
 - Display this image in a window and keep it open. The user can close it at any time without memory leaks.
-- Upon mouse or keyboard events, refresh the image in the window so the user can navigate through the fractal and zoom infinitely (within the limits of the computer).
+- Upon mouse or keyboard events, recalculate the fractal and refresh the image in the window. This way, the user can navigate through the fractal and zoom infinitely (within the limits of the computer).
 
 ## Compilation
 
