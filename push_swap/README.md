@@ -43,9 +43,13 @@ This project is an introduction to efficiency and it teaches different approache
 
 # TESTER ✅
 
-Compilation:
+Compilation
+
 Execute: 
-`make`
+
+```
+make
+```
 
 Execute:
 ```
