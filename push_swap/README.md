@@ -41,77 +41,77 @@ This project is an introduction to efficiency and it teaches different approache
 | Less than 10000 | 2 |
 | Less than 11500 | 1 |
 
-<div style="display: flex; justify-content: space-between; gap: 20px;">
-
-<div style="flex: 1;">
-  <h4>100 Numbers:</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Movements</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Less than 700</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>Less than 900</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>Less than 1100</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Less than 1300</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Less than 1500</td>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div style="flex: 1;">
-  <h4>500 Numbers:</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Movements</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Less than 5500</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>Less than 7000</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>Less than 8500</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Less than 10000</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>Less than 11500</td>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-</div>
+<table>
+  <tr>
+    <td style="vertical-align: top;">
+      <h4>100 Numbers:</h4>
+      <table style="margin-right: 20px;">
+        <thead>
+          <tr>
+            <th>Movements</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Less than 700</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Less than 900</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Less than 1100</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Less than 1300</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Less than 1500</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td style="vertical-align: top;">
+      <h4>500 Numbers:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Movements</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Less than 5500</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Less than 7000</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>Less than 8500</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>Less than 10000</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Less than 11500</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</table>
 
 ## 🟠 Compilation and Testing
 
