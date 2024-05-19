@@ -44,7 +44,7 @@ This project is an introduction to efficiency and it teaches different approache
 <table>
   <tr>
     <td style="vertical-align: top;">
-      <h4>100 Numbers:</h4>
+      <h4>✅ 100 Numbers:</h4>
       <table style="margin-right: 20px;">
         <thead>
           <tr>
@@ -78,7 +78,7 @@ This project is an introduction to efficiency and it teaches different approache
     </td>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <td style="vertical-align: top;">
-      <h4>500 Numbers:</h4>
+      <h4>✅ 500 Numbers:</h4>
       <table>
         <thead>
           <tr>
