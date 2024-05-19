@@ -120,9 +120,7 @@ And execute:
 bash push_swap_test.sh
 ```
 
-Note for this project:
-
-✅ 5/5 (A* search algorithm)
+Note for this project: ✅ 5/5 (A* search algorithm)
 
 ##
 
