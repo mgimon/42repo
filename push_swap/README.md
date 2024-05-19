@@ -21,25 +21,7 @@ This project is an introduction to efficiency and it teaches different approache
 | rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
 | rrr | rra and rrb at the same time. |
 
-✅ 100 Numbers:
-
-| Movements | Points |
-| :---: | :---: |
-| Less than 700 | 5 |
-| Less than 900 | 4 |
-| Less than 1100 | 3 |
-| Less than 1300 | 2 |
-| Less than 1500 | 1 |
-
-✅ 500 Numbers: 
-
-| Movements | Points |
-| :---: | :---: |
-| Less than 5500 | 5 |
-| Less than 7000 | 4 |
-| Less than 8500 | 3 |
-| Less than 10000 | 2 |
-| Less than 11500 | 1 |
+## 🟠 Efficiency
 
 <table>
   <tr>
