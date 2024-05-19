@@ -43,9 +43,9 @@ This project is an introduction to efficiency and it teaches different approache
 
 <table>
   <tr>
-    <td style="padding: 10px 20px 10px 10px; vertical-align: top;">
+    <td style="vertical-align: top;">
       <h4>100 Numbers:</h4>
-      <table>
+      <table style="margin-right: 20px;">
         <thead>
           <tr>
             <th>Movements</th>
@@ -76,7 +76,7 @@ This project is an introduction to efficiency and it teaches different approache
         </tbody>
       </table>
     </td>
-    <td style="padding: 10px 10px 10px 20px; vertical-align: top;">
+    <td style="vertical-align: top;">
       <h4>500 Numbers:</h4>
       <table>
         <thead>
