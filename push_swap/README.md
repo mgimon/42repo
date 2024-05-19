@@ -21,7 +21,6 @@ This project is an introduction to efficiency and it teaches different approache
 | rrb | reverse rotate b - shift down all elements of stack b by one position. The last element becomes the first one. |
 | rrr | rra and rrb at the same time. |
 
-<br>
 
 ## 🟠 Efficiency
 
