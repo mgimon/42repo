@@ -1,7 +1,7 @@
 
 ⚠️ WARNING ⚠️
 
-👷👷‍♀️ I am still working on this project 👷👷‍♀️
+👷👷‍♀️ This projectly is currently being worked upon! 👷👷‍♀️
 
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
