@@ -1,7 +1,7 @@
 
-<p align="center" style="font-size:24px;">
+<h1 align="center">
 ⚠️ WARNING ⚠️
-</p>
+</h1>
 
 <br>
 
