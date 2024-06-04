@@ -6,7 +6,7 @@
 #    By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 22:38:31 by mgimon-c          #+#    #+#              #
-#    Updated: 2024/06/01 20:07:28 by mgimon-c         ###   ########.fr        #
+#    Updated: 2024/06/04 22:30:52 by mgimon-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRCS        :=      ft_printf/ft_printf.c \
                           main.c \
                           prints.c \
                           utils.c \
+                          process.c \
                           
 OBJS        := $(SRCS:.c=.o)
 

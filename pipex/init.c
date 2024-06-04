@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:08:34 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/02 19:04:12 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/04 22:53:08 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,30 @@ void	set_correct_path(t_struct *structure, int which_cmd)
 	}
 }
 
+void	open_files(t_struct *structure)
+{
+	int	fd1;
+	int	fd2;
+
+	fd1 = open(structure->filename1, O_RDONLY);
+	if (fd1 == -1)
+	{
+		perror("Infile was not found");
+		exit(1);
+	}
+	else
+		structure->fd1 = fd1;
+	fd2 = open(structure->filename2, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+	if (fd == -1)
+	{
+		perror("Outfile was not found");
+		close(fd1);
+		exit(1);
+	}
+	else
+		structure->fd2 = fd2;
+}
+
 void	struct_init(t_struct *structure, char **argv, char **env)
 {
 	char	*cmd1;
@@ -110,6 +134,9 @@ void	struct_init(t_struct *structure, char **argv, char **env)
 
 	cmd1 = NULL;
 	cmd2 = NULL;
+	structure->filename1 = argv[1];
+	structure->filename2 = argv[4];
+	open_files(structure);
 	cmd1 = ft_strjoin_pipex("/", argv[2]);
 	if (cmd1 == NULL)
 	{
@@ -125,8 +152,6 @@ void	struct_init(t_struct *structure, char **argv, char **env)
 	}
 	structure->cmd1 = cmd1;
 	structure->cmd2 = cmd2;
-	structure->filename1 = argv[1];
-	structure->filename2 = argv[4];
 	structure->path = NULL;
 	structure->path_cmd1 = NULL;
 	structure->path_cmd2 = NULL;

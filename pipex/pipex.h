@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:26:53 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/02 17:48:15 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/04 22:31:53 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_struct
 	char	*filename1;
 	char	*filename2;
 
-	int		file1;
-	int		file2;
+	int	fd1;
+	int	fd2;
 }	t_struct;
 
 //	main.c
@@ -44,6 +44,8 @@ char	*ft_strjoin_pipex(char const *s1, char const *s2);
 int		ft_strncmp_pipex(const char *str, const char *str2, size_t c);
 void	matrix_free(char **s);
 
+//	process.c
+void    pipex(t_struct structure);
 
 //	prints.c
 void	print_arg(char *arg);
