@@ -6,7 +6,7 @@
 #    By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 22:38:31 by mgimon-c          #+#    #+#              #
-#    Updated: 2024/06/04 22:30:52 by mgimon-c         ###   ########.fr        #
+#    Updated: 2024/06/06 14:12:32 by mgimon-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ all:		${NAME}
 bonus:		all
 
 clean:
-			${RM} *.o */*.o */*/*.o
+		${RM} *.o */*.o */*/*.o
 
 fclean:		clean
 			${RM} ${NAME}

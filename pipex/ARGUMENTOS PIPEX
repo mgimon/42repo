@@ -1,0 +1,70 @@
+
+ARGUMENTOS PIPEX
+
+./pipex vehicles.txt "cat" "grep car" empty.txt
+< vehicles.txt cat | grep car > empty.txt
+[OK]
+
+./pipex vehicles.txt "head -n 5" "tail -n 3" empty.txt
+< vehicles.txt head -n 5 | tail -n 3 > empty.txt
+[OK]
+
+./pipex vehicles.txt "cut -d' ' -f1" "sort" empty.txt
+< vehicles.txt cut -d' ' -f1 | sort > empty.txt
+[XX]
+
+./pipex vehicles.txt "awk {print $2}" "uniq -c" empty.txt
+< vehicles.txt awk '{print $2}' | uniq -c > empty.txt
+[XX]
+
+./pipex vehicles.txt "tr 'a-z' 'A-Z'" "sort" empty.txt
+< vehicles.txt tr 'a-z' 'A-Z' | sort > empty.txt
+[OK]
+
+./pipex vehicles.txt "sort -n" "uniq" empty.txt
+< vehicles.txt sort -n | uniq > empty.txt
+[OK]
+
+./pipex vehicles.txt "grep motorbike" "wc -w" empty.txt
+< vehicles.txt grep motorbike | wc -w > empty.txt
+[OK]
+
+./pipex vehicles.txt "sed 's/car/vehicle/g'" "grep vehicle" empty.txt
+< vehicles.txt sed 's/car/vehicle/g' | grep vehicle > empty.txt
+[XX]
+
+./pipex vehicles.txt "tr -d 'aeiou'" "rev" empty.txt
+< vehicles.txt tr -d 'aeiou' | rev > empty.txt
+[OK]
+
+./pipex vehicles.txt "sh" "grep year" empty.txt
+< vehicles.txt sh | grep year > empty.txt
+[OK]
+
+./pipex vehicles.txt "cut -d' ' -f3" "sort | uniq" empty.txt
+< vehicles.txt cut -d' ' -f3 | sort | uniq > empty.txt
+[XX]
+
+./pipex vehicles.txt "grep -i powerboat" "wc -c" empty.txt
+< vehicles.txt grep -i powerboat | wc -c > empty.txt
+[OK]
+
+./pipex vehicles.txt "tail -n +3" "head -n 5" empty.txt
+< vehicles.txt tail -n +3 | head -n 5 > empty.txt
+[OK]
+
+./pipex vehicles.txt "nl" "grep -v '^#'" empty.txt
+< vehicles.txt nl | grep -v '^#' > empty.txt
+[OK]
+
+./pipex vehicles.txt "python3" "grep 'year 2020'" empty.txt
+< vehicles.txt python3 | grep 'year 2020' > empty.txt
+[OK ERROR]
+
+./pipex vehicles.txt "grep -E car|motorbike" "wc -l" empty.txt
+< vehicles.txt grep -E 'car|motorbike' | wc -l > empty.txt
+[OK]
+
+./pipex vehicles.txt "sed -n 1,10p" "wc -w" empty.txt
+< vehicles.txt sed -n '1,10p' | wc -w > empty.txt
+[OK]

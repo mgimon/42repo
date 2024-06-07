@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:03:55 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/02/22 17:13:55 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/07 20:57:46 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stddef.h>
 # include <ctype.h>
 # include <stdio.h>
-# include <xlocale.h>
+/*# include <xlocale.h>*/
+# include <locale.h>
 # include <stdlib.h>
 # include <errno.h>
 # include <unistd.h>

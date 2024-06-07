@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:08:34 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/04 22:53:08 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/07 19:50:41 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //inits structure->path to env
 void	set_path(t_struct *structure, char **env)
 {
-	int		i;
+	int	i;
 	char	*tmp;
 
 	i = 0;
@@ -36,19 +36,19 @@ void	set_path(t_struct *structure, char **env)
 		structure->path = ft_split(tmp, ':');
 		if (structure->path == NULL)
 		{
-			free(structure->cmd1);
-			free(structure->cmd2);
+			free(structure->cmd[0]);
+			close(structure->fd);
 			perror("Error");
 			exit(1);
 		}
 	}
 }
 
-//adds one /cmd to structure->path
+//adds /cmd to structure->path
 void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 {
 	char	*new_path;
-	int		i;
+	int	i;
 
 	if (!structure)
 		return ;
@@ -65,8 +65,8 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 				i--;
 			}
 			free(structure->path);
-			free(structure->cmd1);
-			free(structure->cmd2);
+			free(structure->cmd[0]);
+                        close(structure->fd);
 			perror("Error");
 			exit(1);
 		}
@@ -76,10 +76,8 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 	}
 }
 
-//sets structure->path_cmd1 to the first accessible path
-//or
-//sets structure->path_cmd2 to the first accessible path
-void	set_correct_path(t_struct *structure, int which_cmd)
+//sets structure->path_cmd to the first accessible path
+void	set_correct_path(t_struct *structure)
 {
 	int	i;
 
@@ -88,75 +86,55 @@ void	set_correct_path(t_struct *structure, int which_cmd)
 	{
 		if (access(structure->path[i], R_OK) == 0)
 		{
-			if (which_cmd == 1)
-			{
-				structure->path_cmd1 = ft_strdup(structure->path[i]);
-				return ;
-			}
-			if (which_cmd == 2)
-			{
-				structure->path_cmd2 = ft_strdup(structure->path[i]);
-				return ;
-			}
+			structure->path_cmd = ft_strdup(structure->path[i]);
+			return ;
 		}
 		i++;
 	}
+	// error - ninguna ruta valida
 }
 
-void	open_files(t_struct *structure)
+void	open_file(t_struct *structure, int which_cmd)
 {
-	int	fd1;
-	int	fd2;
+	int	fd;
 
-	fd1 = open(structure->filename1, O_RDONLY);
-	if (fd1 == -1)
-	{
-		perror("Infile was not found");
-		exit(1);
-	}
-	else
-		structure->fd1 = fd1;
-	fd2 = open(structure->filename2, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+	if (which_cmd == 1)
+		fd = open(structure->filename, O_RDONLY);
+	else if (which_cmd == 2)
+		fd = open(structure->filename, O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (fd == -1)
 	{
-		perror("Outfile was not found");
-		close(fd1);
+		//error management
+		perror("");
 		exit(1);
 	}
-	else
-		structure->fd2 = fd2;
+	structure->fd = fd;
 }
 
-void	struct_init(t_struct *structure, char **argv, char **env)
+void	struct_init(t_struct *structure, char **argv, char **env, int which_cmd)
 {
-	char	*cmd1;
-	char	*cmd2;
+	char	**cmd;
 
-	cmd1 = NULL;
-	cmd2 = NULL;
-	structure->filename1 = argv[1];
-	structure->filename2 = argv[4];
-	open_files(structure);
-	cmd1 = ft_strjoin_pipex("/", argv[2]);
-	if (cmd1 == NULL)
+	if (which_cmd == 1)
+		structure->filename = argv[1];
+	else if (which_cmd == 2)
+		structure->filename = argv[4];	
+	open_file(structure, which_cmd);
+	if (which_cmd == 1)
 	{
-		perror("Error");
-		exit(1);
+		structure->filename = argv[1];
+		cmd = ft_split(argv[2], ' ');
+		cmd[0] = ft_strjoin("/", cmd[0]);
 	}
-	cmd2 = ft_strjoin_pipex("/", argv[3]);
-	if (cmd2 == NULL)
-	{	
-		perror("Error");
-		free(cmd1);
-		exit(1);
+	else if (which_cmd == 2)
+	{
+		structure->filename = argv[4];
+		cmd = ft_split(argv[3], ' ');
+		cmd[0] = ft_strjoin("/", cmd[0]);
 	}
-	structure->cmd1 = cmd1;
-	structure->cmd2 = cmd2;
+	structure->cmd = cmd;
 	structure->path = NULL;
-	structure->path_cmd1 = NULL;
-	structure->path_cmd2 = NULL;
-	set_cmd_in_path(structure, env, structure->cmd1);
-	set_correct_path(structure, 1);
-	set_cmd_in_path(structure, env, structure->cmd2);
-	set_correct_path(structure, 2);
+	structure->path_cmd = NULL;
+	set_cmd_in_path(structure, env, structure->cmd[0]);
+	set_correct_path(structure);
 }

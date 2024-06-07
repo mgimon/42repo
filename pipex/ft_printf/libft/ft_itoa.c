@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:19:19 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/02/15 16:53:18 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/05 19:48:45 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ static char	*inverse(char *buffer)
 {
 	size_t	j;
 	size_t	i;
-	size_t	length;
 	char	temp;
 	char	*result;
 
 	i = ft_strlen(buffer) - 1;
-	length = i + 1;
 	result = (char *)buffer;
 	j = 0;
 	if (buffer[j] == '-')

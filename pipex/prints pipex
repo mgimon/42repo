@@ -1,0 +1,7 @@
+        printf("El path es %s\n", structure->path_cmd);
+        printf("El cmd[0] es %s\n", structure->cmd[0]);
+        printf("El cmd[1] es %s\n", structure->cmd[1]);
+        printf("El cmd[2] es %s\n", structure->cmd[2]);
+        printf("El filename es %s\n", structure->filename);
+        printf("El fd es %d\n", structure->fd);
+
