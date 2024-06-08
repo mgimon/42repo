@@ -6,13 +6,14 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:08:34 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/07 19:50:41 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/08 16:19:16 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-//inits structure->path to env
+//inits structure->path to env.
+//if no 'PATH=', it remains NULL so access will catch the error later
 void	set_path(t_struct *structure, char **env)
 {
 	int	i;
@@ -32,11 +33,14 @@ void	set_path(t_struct *structure, char **env)
 	if (tmp)
 	{
 		if (structure->path != NULL)
+		{
 			matrix_free(structure->path);
+			structure->path = NULL;
+		}
 		structure->path = ft_split(tmp, ':');
 		if (structure->path == NULL)
 		{
-			free(structure->cmd[0]);
+			matrix_free(structure->cmd);
 			close(structure->fd);
 			perror("Error");
 			exit(1);
@@ -50,8 +54,6 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 	char	*new_path;
 	int	i;
 
-	if (!structure)
-		return ;
 	i = 0;
 	set_path(structure, env);
 	while (structure->path[i] != NULL)
@@ -65,7 +67,7 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 				i--;
 			}
 			free(structure->path);
-			free(structure->cmd[0]);
+			matrix_free(structure->cmd);
                         close(structure->fd);
 			perror("Error");
 			exit(1);
@@ -77,7 +79,8 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 }
 
 //sets structure->path_cmd to the first accessible path
-void	set_correct_path(t_struct *structure)
+//exit error values are implemented to mimic shell behavior
+void	set_correct_path(t_struct *structure, int which_cmd)
 {
 	int	i;
 
@@ -87,11 +90,26 @@ void	set_correct_path(t_struct *structure)
 		if (access(structure->path[i], R_OK) == 0)
 		{
 			structure->path_cmd = ft_strdup(structure->path[i]);
+			if (structure->path_cmd == NULL)
+			{
+			matrix_free(structure->path);
+			matrix_free(structure->cmd);
+			close(structure->fd);
+			perror("");
+			exit(1);
+			}
 			return ;
 		}
 		i++;
 	}
-	// error - ninguna ruta valida
+	matrix_free(structure->path);
+	matrix_free(structure->cmd);
+	close(structure->fd);
+	printf("Error: command not found\n");
+	if (which_cmd == 1)
+		exit(1);
+	else
+		exit(127);
 }
 
 void	open_file(t_struct *structure, int which_cmd)
@@ -104,8 +122,7 @@ void	open_file(t_struct *structure, int which_cmd)
 		fd = open(structure->filename, O_WRONLY | O_CREAT | O_TRUNC, 0666);
 	if (fd == -1)
 	{
-		//error management
-		perror("");
+		perror("Error");
 		exit(1);
 	}
 	structure->fd = fd;
@@ -136,5 +153,5 @@ void	struct_init(t_struct *structure, char **argv, char **env, int which_cmd)
 	structure->path = NULL;
 	structure->path_cmd = NULL;
 	set_cmd_in_path(structure, env, structure->cmd[0]);
-	set_correct_path(structure);
+	set_correct_path(structure, which_cmd);
 }

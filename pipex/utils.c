@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:12:44 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/02 17:39:12 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/08 16:01:45 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,15 @@ int	ft_strncmp_pipex(const char *str, const char *str2, size_t c)
 
 void	matrix_free(char **s)
 {
-	int		i;
-	char	**tmp;
+	int	i;
 
 	i = 0;
-	tmp = s;
-	if (!s || !*s)
+	if (!s)
 		return ;
 	while (s[i] != NULL)
-		i++;
-	i--;
-	while (i >= 0)
 	{
 		free(s[i]);
-		i--;
+		i++;
 	}
-	free(tmp);
-	*s = NULL;
+	free(s);
 }
