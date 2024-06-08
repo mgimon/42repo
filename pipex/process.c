@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 22:18:23 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/08 15:38:25 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/08 17:31:18 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	pipex(t_struct *structure, char **argv, char **env)
 		child_process(structure, argv, env, sides);
 	else
 	{
-		wait(NULL);
+		/*wait(NULL);*/
 		parent_process(structure, argv, env, sides);
 	}
 }
