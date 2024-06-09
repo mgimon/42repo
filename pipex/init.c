@@ -13,7 +13,7 @@
 #include "pipex.h"
 
 //inits structure->path to env.
-//if no 'PATH=', it remains NULL so access will catch the error later
+//if no 'PATH=', it remains NULL
 void	set_path(t_struct *structure, char **env)
 {
 	int	i;
@@ -49,6 +49,7 @@ void	set_path(t_struct *structure, char **env)
 }
 
 //adds /cmd to structure->path
+//if no 'PATH=', it does nothing
 void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 {
 	char	*new_path;
@@ -56,51 +57,91 @@ void	set_cmd_in_path(t_struct *structure, char **env, char *cmd)
 
 	i = 0;
 	set_path(structure, env);
-	while (structure->path[i] != NULL)
+	if (structure->path)
 	{
-		new_path = ft_strjoin_pipex(structure->path[i], cmd);
-		if (new_path == NULL)
+		while (structure->path[i] != NULL)
 		{
-			while (i >= 0)
+			new_path = ft_strjoin_pipex(structure->path[i], cmd);
+			if (new_path == NULL)
 			{
-				free(structure->path[i]);
-				i--;
+				while (i >= 0)
+				{
+					free(structure->path[i]);
+					i--;
+				}
+				free(structure->path);
+				matrix_free(structure->cmd);
+                        	close(structure->fd);
+				perror("Error");
+				exit(1);
 			}
-			free(structure->path);
-			matrix_free(structure->cmd);
-                        close(structure->fd);
-			perror("Error");
-			exit(1);
+			free(structure->path[i]);
+			structure->path[i] = new_path;
+			i++;
 		}
-		free(structure->path[i]);
-		structure->path[i] = new_path;
-		i++;
 	}
 }
 
 //sets structure->path_cmd to the first accessible path
+//if no 'PATH=', it sets it to argv[2]/argv[3] if accessible
 //exit error values are implemented to mimic shell behavior
 void	set_correct_path(t_struct *structure, int which_cmd)
 {
 	int	i;
 
 	i = 0;
-	while (structure->path[i] != NULL)
+	if (structure->path)
 	{
-		if (access(structure->path[i], R_OK) == 0)
+		while (structure->path[i] != NULL)
 		{
-			structure->path_cmd = ft_strdup(structure->path[i]);
-			if (structure->path_cmd == NULL)
+			if (access(structure->path[i], R_OK) == 0)
 			{
-			matrix_free(structure->path);
-			matrix_free(structure->cmd);
-			close(structure->fd);
-			perror("");
-			exit(1);
+				structure->path_cmd = ft_strdup(structure->path[i]);
+				if (structure->path_cmd == NULL)
+				{
+					matrix_free(structure->path);
+					matrix_free(structure->cmd);
+					close(structure->fd);
+					perror("");
+					exit(1);
+				}
+				return ;
 			}
-			return ;
+			i++;
 		}
-		i++;
+	}
+	else
+	{
+		if (which_cmd == 1)
+		{
+			if (access(structure->argv2, R_OK) == 0)
+                        {
+                                structure->path_cmd = ft_strdup(structure->argv2);
+                                if (structure->path_cmd == NULL)
+                                {
+                                	matrix_free(structure->cmd);
+                                	close(structure->fd);
+                                	perror("");
+                                	exit(1);
+                                }
+                                return ;
+                        }
+		}
+		else if (which_cmd == 2)
+		{
+			if (access(structure->argv3, R_OK) == 0)
+                        {
+                                structure->path_cmd = ft_strdup(structure->argv3);
+                                if (structure->path_cmd == NULL)
+                                {
+                                        matrix_free(structure->cmd);
+                                        close(structure->fd);
+                                        perror("");
+                                        exit(1);
+                                }
+                                return ;
+                        }
+		}
 	}
 	matrix_free(structure->path);
 	matrix_free(structure->cmd);
@@ -152,6 +193,8 @@ void	struct_init(t_struct *structure, char **argv, char **env, int which_cmd)
 	structure->cmd = cmd;
 	structure->path = NULL;
 	structure->path_cmd = NULL;
+	structure->argv2 = argv[2];
+	structure->argv3 = argv[3];
 	set_cmd_in_path(structure, env, structure->cmd[0]);
 	set_correct_path(structure, which_cmd);
 }

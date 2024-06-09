@@ -30,6 +30,8 @@ typedef struct s_struct
 
 	char	**cmd;
 	char	*filename;
+	char	*argv2;
+	char	*argv3;
 	int	fd;
 }	t_struct;
 
