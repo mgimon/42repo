@@ -172,29 +172,40 @@ void	open_file(t_struct *structure, int which_cmd)
 void	struct_init(t_struct *structure, char **argv, char **env, int which_cmd)
 {
 	char	**cmd;
+	int	route_in_cmd;
 
+	route_in_cmd = 0;
 	if (which_cmd == 1)
 		structure->filename = argv[1];
 	else if (which_cmd == 2)
 		structure->filename = argv[4];	
 	open_file(structure, which_cmd);
+	if ((argv[2][0] == '\0') | (argv[3][0] == '\0'))
+	{
+		close(structure->fd);
+		exit(0);
+	}
+	structure->path = NULL;
+        structure->path_cmd = NULL;
+        structure->argv2 = argv[2];
+        structure->argv3 = argv[3];
 	if (which_cmd == 1)
 	{
-		structure->filename = argv[1];
 		cmd = ft_split(argv[2], ' ');
 		cmd[0] = ft_strjoin("/", cmd[0]);
+		if (ft_strchr(argv[2], '/'))
+			route_in_cmd = 1;
 	}
 	else if (which_cmd == 2)
 	{
-		structure->filename = argv[4];
 		cmd = ft_split(argv[3], ' ');
 		cmd[0] = ft_strjoin("/", cmd[0]);
+		if (ft_strchr(argv[3], '/'))
+			route_in_cmd = 1;
 	}
 	structure->cmd = cmd;
-	structure->path = NULL;
-	structure->path_cmd = NULL;
-	structure->argv2 = argv[2];
-	structure->argv3 = argv[3];
 	set_cmd_in_path(structure, env, structure->cmd[0]);
+	if (route_in_cmd > 0)
+		structure->path = NULL;
 	set_correct_path(structure, which_cmd);
 }
