@@ -12,7 +12,7 @@ The program should do as the shell instruction:
 < infile.txt command1 | command2 > outfile.txt
 ```
 
-Compilation:
+# Compilation:
 Execute
 ```
 make
