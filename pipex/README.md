@@ -1,6 +1,6 @@
 # About pipex
 
-Pipex es un ejercicio disenado para aprender a mantener multiples procesos y que se comuniquen entre ellos. Para ello necesitaremos crear pipes, y gestionar las salidas y entradas de nuestros hacia estas pipes, de forma que dichos procesos se comuniquen de forma efectiva, especialmente en el momento de la gestion de errores.
+Pipex is an exercise designed to facilitate the maintenance of multiple processes and their communication with one another. This requires the creation of pipes and the management of process outputs and inputs to these pipes, ensuring effective inter-process communication, particularly in error handling scenarios.
 
 Executing the following:
 ```
