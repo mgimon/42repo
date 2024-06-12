@@ -6,18 +6,14 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:19:50 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/05 19:53:00 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:42:03 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// eliminamos los caracteres finales
-
 static void	trim_end(char const *s1, char const *set, size_t *end)
 {
-/*	while (ft_strchr(set, s1[(*end)]) && (*end) >= 0)
-		(*end)--;*/
 	while ((*end) > 0 && ft_strchr(set, s1[(*end) - 1]))
 		(*end)--;
 }

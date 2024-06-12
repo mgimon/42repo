@@ -1,20 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/28 22:38:31 by mgimon-c          #+#    #+#              #
-#    Updated: 2024/06/06 14:12:32 by mgimon-c         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME        := pipex
 CC        := gcc
 FLAGS    := -Wall -Wextra -Werror -g
 
 SRCS        :=      ft_printf/ft_printf.c \
+                          ft_printf/print_char.c \
+                          ft_printf/print_hex.c \
+                          ft_printf/print_integer.c \
+                          ft_printf/print_percent.c \
+                          ft_printf/print_pointer.c \
+                          ft_printf/print_string.c \
+                          ft_printf/print_unsigned.c \
+                          ft_printf/libft/ft_itoa.c \
                           ft_printf/libft/ft_atoi.c \
                           ft_printf/libft/ft_bzero.c \
                           ft_printf/libft/ft_calloc.c \
@@ -23,7 +20,6 @@ SRCS        :=      ft_printf/ft_printf.c \
                           ft_printf/libft/ft_isascii.c \
                           ft_printf/libft/ft_isdigit.c \
                           ft_printf/libft/ft_isprint.c \
-                          ft_printf/libft/ft_itoa.c \
                           ft_printf/libft/ft_lstadd_back_bonus.c \
                           ft_printf/libft/ft_lstadd_front_bonus.c \
                           ft_printf/libft/ft_lstclear_bonus.c \
@@ -42,7 +38,6 @@ SRCS        :=      ft_printf/ft_printf.c \
                           ft_printf/libft/ft_putendl_fd.c \
                           ft_printf/libft/ft_putnbr_fd.c \
                           ft_printf/libft/ft_putstr_fd.c \
-                          ft_printf/libft/ft_split.c \
                           ft_printf/libft/ft_strchr.c \
                           ft_printf/libft/ft_strdup.c \
                           ft_printf/libft/ft_striteri.c \
@@ -54,24 +49,17 @@ SRCS        :=      ft_printf/ft_printf.c \
                           ft_printf/libft/ft_strncmp.c \
                           ft_printf/libft/ft_strnstr.c \
                           ft_printf/libft/ft_strrchr.c \
-                          ft_printf/libft/ft_strtrim.c \
                           ft_printf/libft/ft_substr.c \
                           ft_printf/libft/ft_tolower.c \
                           ft_printf/libft/ft_toupper.c \
-                          ft_printf/print_char.c \
-                          ft_printf/print_hex.c \
-                          ft_printf/print_integer.c \
-                          ft_printf/print_percent.c \
-                          ft_printf/print_pointer.c \
-                          ft_printf/print_string.c \
-                          ft_printf/print_unsigned.c \
-                          get_next_line/get_next_line.c \
-                          get_next_line/get_next_line_utils.c \
-                          init.c \
-                          main.c \
+                          ft_printf/libft/ft_strtrim.c \
+                          ft_printf/libft/ft_split.c \
                           prints.c \
                           utils.c \
+                          main.c \
                           process.c \
+                          init.c \
+                          utils_two.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
@@ -85,13 +73,11 @@ ${NAME}:	${OBJS}
 
 all:		${NAME}
 
-bonus:		all
-
 clean:
-		${RM} *.o */*.o */*/*.o
+			@ ${RM} *.o */*.o */*/*.o
 
 fclean:		clean
-			${RM} ${NAME}
+			@ ${RM} ${NAME}
 
 re:			fclean all
 

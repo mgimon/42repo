@@ -6,11 +6,29 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 18:12:44 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/08 16:01:45 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:15:19 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+int	is_empty(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return (1);
+	if (argv[i] == '\0')
+		return (1);
+	while (argv[i] != '\0')
+	{
+		if (argv[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_strlen_pipex(char const *str)
 {

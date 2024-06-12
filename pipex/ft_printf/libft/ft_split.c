@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:53 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/07 22:08:39 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:52:25 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static size_t	arg_counter(char const *s, char c)
 {
 	size_t	i;
 	size_t	args;
-	int	waiting_param_end;
+	int		waiting_param_end;
 
 	waiting_param_end = 1;
 	i = 0;
@@ -28,7 +28,8 @@ static size_t	arg_counter(char const *s, char c)
 		{
 			if ((char)s[i] == '\'')
 				waiting_param_end *= -1;
-			if (((char)s[i] == c && s[i + 1] != c && s[i + 1] != '\0') && waiting_param_end > 0)
+			if (((char)s[i] == c && s[i + 1] != c
+					&& s[i + 1] != '\0') && waiting_param_end > 0)
 				args++;
 			i++;
 		}
@@ -39,7 +40,7 @@ static size_t	arg_counter(char const *s, char c)
 static size_t	arg_len(char const *s, char c)
 {
 	size_t	i;
-	int	waiting_param_end;
+	int		waiting_param_end;
 
 	i = 0;
 	waiting_param_end = 1;
@@ -53,7 +54,7 @@ static size_t	arg_len(char const *s, char c)
 		if ((char)s[i] == '\0')
 			return (i);
 		if ((char)s[i] == '\'')
-			waiting_param_end *= -1;	
+			waiting_param_end *= -1;
 		i++;
 	}
 	return (i);

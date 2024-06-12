@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 22:18:23 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/08 17:31:18 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:37:16 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	child_process(t_struct *structure, char **argv, char **env, int *sides)
 	}
 }
 
-
 //execve frees and kills the process if successful
 void	parent_process(t_struct *structure, char **argv, char **env, int *sides)
 {
@@ -54,8 +53,8 @@ void	parent_process(t_struct *structure, char **argv, char **env, int *sides)
 void	pipex(t_struct *structure, char **argv, char **env)
 {
 	pid_t	process;
-	int	sides[2];
-	
+	int		sides[2];
+
 	if (pipe(sides) == -1)
 	{
 		perror("");
@@ -72,8 +71,5 @@ void	pipex(t_struct *structure, char **argv, char **env)
 	if (process == 0)
 		child_process(structure, argv, env, sides);
 	else
-	{
-		/*wait(NULL);*/
 		parent_process(structure, argv, env, sides);
-	}
 }
