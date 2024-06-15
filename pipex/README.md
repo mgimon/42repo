@@ -12,6 +12,11 @@ Should do as the shell instruction:
 < infile.txt command1 | command2 > outfile.txt
 ```
 
+For example:
+```
+./pipex vehicles.txt "grep powerboat" "wc -w" outfile.txt
+```
+
 ## 🟠 Compilation:
 Execute
 ```
