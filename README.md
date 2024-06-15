@@ -12,7 +12,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
       <th colspan="2">42repo</th>
     </tr>
     <tr>
-      <td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/fractol">Fractol</a></td>
+      <!--<td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/fractol">Fractol</a></td> -->
+      <td><a href="https://github.com/mgimon/42repo/tree/master/fractol">Fractol</a></td>
+      <td><a href="https://github.com/mgimon/42repo/tree/master/pipex">Pipex</a></td>
     </tr>
     <tr>
       <td><a href="https://github.com/mgimon/42repo/tree/master/push_swap">Push_Swap</a></td>
