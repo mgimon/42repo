@@ -1,4 +1,4 @@
-# About philosophers
+<!-- # About philosophers -->
 
 ## ⚠️ Warning:
 This project is currently being developed and it's not finished yet!
