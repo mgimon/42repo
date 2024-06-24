@@ -30,7 +30,7 @@ Execute:
 make
 ```
 
-and
+and then
 
 ```
 ./fractol mandelbrot
