@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/22 17:38:44 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:24:58 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,28 @@ int	check_args(char **argv)
 	return (0);
 }
 
+int	init_mutexes(t_struct *structure)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	if (structure->number_of_philosophers == 1)
+		n = 2;
+	else
+		n = structure->number_of_philosophers;
+	structure->forks = malloc(sizeof(pthread_mutex_t) * n);
+	if (structure->forks == NULL)
+		return (1);
+	while (i < n)
+	{
+		if (pthread_mutex_init(&structure->forks[i], NULL) != 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 // if the user does not specify n_must_eat, it is set to -1
 int	init_info(t_struct *structure, char **argv)
 {
@@ -71,6 +93,9 @@ int	init_info(t_struct *structure, char **argv)
 	else	
 		structure->n_must_eat = -1;
 	structure->start_time = get_time_now();
+	if (init_mutexes(structure) != 0)
+		return (1);
+	structure->one_dead = 0;
 	return (args_valid);
 }
 
@@ -90,6 +115,7 @@ int	init_philosophers(t_struct *structure)
 		structure->philosophers[i].time_to_sleep = structure->time_to_sleep;
 		structure->philosophers[i].meals = 0;
 		structure->philosophers[i].dead = 0;
+		structure->philosophers[i]->structure = structure;
 		i++;
 	}
 	return (0);

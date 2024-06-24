@@ -6,21 +6,32 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:24:13 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/22 19:02:45 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:28:42 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	philosopher_takes_forks(t_philo *philosopher)
+{
+	
+}
+
+int	philosopher_eats(t_philo *philosopher)
+{
+
+}
+
 void	*start_routine(void *philo_pointer)
 {
 	t_philo *philosopher;
-
 	philosopher = (t_philo *)philo_pointer;
-	while (philosopher->dead == 0)
+/*	while (philosopher->structure->one_dead == 0)
 	{
-		
-	}
+	break si muere (+ setear one_dead = 1) y si llega al numero de comidas	*/
+	if (philosopher_takes_forks(philosopher) == 0)
+		philosopher_eats(philosopher);
+/*	}*/
 	return (0);
 }
 

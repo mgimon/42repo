@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:01:08 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/22 17:29:29 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/24 20:50:10 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ long		get_time_now(void)
 	return (result);
 }
 
-void	put_error(int result)
+void	put_error(int error)
 {
-	if (result == 1)
+	if (error == 1)
 		write(2, "Error - Malloc error\n", 21);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/22 17:38:42 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/24 21:25:01 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,23 @@ typedef struct	s_philo
 	pthread_t		thread_id;
 	int				id;
 	int				dead;
-	pthread_mutex_t	*fork_left;
-	pthread_mutex_t	*fork_right;
 	long			time_to_die;
 	long			time_to_eat;
 	long			time_to_sleep;
 	long			meals;
+	t_struct		*structure;
 }	t_philo;
 
 typedef struct  s_struct
 {
+	int				one_dead;
 	long			start_time;
     long			number_of_philosophers;
     long			time_to_die;
     long			time_to_eat;
     long			time_to_sleep;
     long			n_must_eat;
+	pthread_mutex_t	*forks;
     t_philo         *philosophers;
 }   t_struct;
 
@@ -52,6 +53,7 @@ int				init_info(t_struct *structure, char **argv);
 int				init_philosophers(t_struct *structure);
 
 // utils.c
+void			put_error(int error);
 long			get_time_now(void);
 long			ft_atol(const char *str);
 
