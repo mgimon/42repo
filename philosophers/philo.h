@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/24 21:25:01 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:49:13 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct	s_philo
 	pthread_t		thread_id;
 	int				id;
 	int				dead;
-	long			time_to_die;
-	long			time_to_eat;
-	long			time_to_sleep;
+	int				left;
+	int				right;
+	long			last_meal_time;
 	long			meals;
-	t_struct		*structure;
+	struct s_struct	*structure;
 }	t_philo;
 
 typedef struct  s_struct
@@ -42,6 +42,7 @@ typedef struct  s_struct
     long			time_to_sleep;
     long			n_must_eat;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	locker;
     t_philo         *philosophers;
 }   t_struct;
 

@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/24 21:24:58 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/06/27 18:20:09 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ int	init_mutexes(t_struct *structure)
 	int	n;
 
 	i = 0;
-	if (structure->number_of_philosophers == 1)
-		n = 2;
-	else
-		n = structure->number_of_philosophers;
+	n = structure->number_of_philosophers;
 	structure->forks = malloc(sizeof(pthread_mutex_t) * n);
 	if (structure->forks == NULL)
 		return (1);
@@ -93,8 +90,8 @@ int	init_info(t_struct *structure, char **argv)
 	else	
 		structure->n_must_eat = -1;
 	structure->start_time = get_time_now();
-	if (init_mutexes(structure) != 0)
-		return (1);
+	if (init_mutexes(structure) != 0 || pthread_mutex_init(&structure->locker, NULL) != 0)
+		return (1);	
 	structure->one_dead = 0;
 	return (args_valid);
 }
@@ -110,12 +107,14 @@ int	init_philosophers(t_struct *structure)
 	while (i < structure->number_of_philosophers)
 	{
 		structure->philosophers[i].id = i + 1;
-		structure->philosophers[i].time_to_die = structure->time_to_die;	
-		structure->philosophers[i].time_to_eat = structure->time_to_eat;
-		structure->philosophers[i].time_to_sleep = structure->time_to_sleep;
 		structure->philosophers[i].meals = 0;
 		structure->philosophers[i].dead = 0;
-		structure->philosophers[i]->structure = structure;
+		structure->philosophers[i].structure = structure;
+		structure->philosophers[i].last_meal_time = get_time_now();
+		structure->philosophers[i].left = structure->philosophers[i].id - 1;
+		if (structure->number_of_philosophers != 1)
+			structure->philosophers[i].right = structure->philosophers[i].id % structure->number_of_philosophers;
+		printf("Philosopher %d is thinking\n", structure->philosophers[i].id);
 		i++;
 	}
 	return (0);
