@@ -42,7 +42,6 @@ typedef struct  s_struct
     long			time_to_sleep;
     long			n_must_eat;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	locker;
     t_philo         *philosophers;
 }   t_struct;
 

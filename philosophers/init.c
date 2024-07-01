@@ -90,7 +90,7 @@ int	init_info(t_struct *structure, char **argv)
 	else	
 		structure->n_must_eat = -1;
 	structure->start_time = get_time_now();
-	if (init_mutexes(structure) != 0 || pthread_mutex_init(&structure->locker, NULL) != 0)
+	if (init_mutexes(structure) != 0)
 		return (1);	
 	structure->one_dead = 0;
 	return (args_valid);
@@ -114,7 +114,6 @@ int	init_philosophers(t_struct *structure)
 		structure->philosophers[i].left = structure->philosophers[i].id - 1;
 		if (structure->number_of_philosophers != 1)
 			structure->philosophers[i].right = structure->philosophers[i].id % structure->number_of_philosophers;
-		printf("Philosopher %d is thinking\n", structure->philosophers[i].id);
 		i++;
 	}
 	return (0);

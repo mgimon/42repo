@@ -39,26 +39,29 @@ void    waiter(t_philo *philosopher, long time)
 
 int	philosopher_takes_forks(t_philo *philosopher)
 {
+	if (philosopher->id % 2 == 0)
+		pthread_mutex_lock(&(philosopher->structure->forks[philosopher->right]));
+	else
+		pthread_mutex_lock(&(philosopher->structure->forks[philosopher->left]));
+	if (!philosopher_dead(philosopher))
+		printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
 	if (philosopher->structure->number_of_philosophers == 1)
-		waiter(philosopher, philosopher->structure->time_to_die + 100);
-	if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->left])) == 0)
+                return (waiter(philosopher, philosopher->structure->time_to_die + 100), pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), 1);
+	if (philosopher->id % 2 == 0)
 	{
-		if (philosopher_dead(philosopher))
-			return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left])), 1);
-		if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->right])) == 0)
-		{
-			if (philosopher_dead(philosopher))
-				return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left])), pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), 1);
-			printf("%ld Philosopher %d has taken both forks\n", get_time_now(), philosopher->id);
-			return (0);
-		}
-		else
-		{
-			pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left]));
-			return (1);
-		}
+		if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->left])) != 0)
+			return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), 1);
+		if (!philosopher_dead(philosopher))
+			printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
 	}
-	return (1);
+	else
+	{
+		if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->right])) != 0)
+			return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left])), 1);
+		if (!philosopher_dead(philosopher))
+			printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
+	}
+	return (0);
 }
 
 int	philosopher_eats(t_philo *philosopher)
