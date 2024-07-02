@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/27 18:20:09 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/02 21:39:22 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	init_philosophers(t_struct *structure)
 	{
 		structure->philosophers[i].id = i + 1;
 		structure->philosophers[i].meals = 0;
-		structure->philosophers[i].dead = 0;
+	/*	structure->philosophers[i].dead = 0;*/
 		structure->philosophers[i].structure = structure;
 		structure->philosophers[i].last_meal_time = get_time_now();
 		structure->philosophers[i].left = structure->philosophers[i].id - 1;

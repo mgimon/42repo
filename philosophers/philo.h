@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/25 20:49:13 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/02 21:52:13 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct	s_philo
 {
 	pthread_t		thread_id;
 	int				id;
-	int				dead;
 	int				left;
 	int				right;
 	long			last_meal_time;

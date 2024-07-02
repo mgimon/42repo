@@ -1,0 +1,16 @@
+MINISHELL
+albealva
+
+PHILOSOPHERS
+- implementar parada tras n_meals
+- quitar funcion put_error o implementarla
+- implementar frees de: -hilos -mutexes -estructuras -mallocs? (mirar si pthread destroy libera)
+- check errores parseo con args desquiciados
+- check leaks
+
+./philo 3 310 200 100
+muertes no monitoreadas para filosofos que no consiguen tomar tenedor alguno
+resto de correcciones
+
+- funcion de monitor_deaths
+- mutex general para escritura en one_dead

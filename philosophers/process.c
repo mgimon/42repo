@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:24:13 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/27 18:32:03 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/02 21:58:56 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	philosopher_takes_forks(t_philo *philosopher)
 int	philosopher_eats(t_philo *philosopher)
 {
 	printf("%ld Philosopher %d is eating\n", get_time_now(), philosopher->id);
-	waiter(philosopher, philosopher->structure->time_to_eat);
 	philosopher->last_meal_time = get_time_now();
+	waiter(philosopher, philosopher->structure->time_to_eat);
 	return (0);
 }
 
@@ -106,6 +106,28 @@ void	*start_routine(void *philo_pointer)
 	return (NULL);
 }
 
+void	monitor_deaths(t_struct *structure)
+{
+	long	time_now;
+	int		i;
+
+	while (1)
+	{
+		i = 0;
+		while (i < structure->number_of_philosophers)
+		{
+			time_now = get_time_now();
+    		if (time_now > (structure->philosophers[i].last_meal_time + structure->time_to_die))
+    		{
+        		structure->one_dead = 1;
+        		printf("%ld Philosopher %d died\n", time_now, structure->philosophers[i].id);
+        		return ;
+    		}
+			i++;
+		}
+	}	
+}
+
 int	run_threads(t_struct *structure)
 {
 	int i;
@@ -116,6 +138,7 @@ int	run_threads(t_struct *structure)
 		pthread_create(&structure->philosophers[i].thread_id, NULL, &start_routine, (void *)&structure->philosophers[i]);
 		i++;
 	}
+	monitor_deaths(structure);
 	i = 0;
 	while (i < structure->number_of_philosophers)
 	{
