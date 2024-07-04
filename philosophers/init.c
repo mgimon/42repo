@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/02 21:39:22 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/04 18:16:38 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,17 @@ int	init_mutexes(t_struct *structure)
 			return (1);
 		i++;
 	}
+	if (pthread_mutex_init(&structure->mutex, NULL) != 0)
+		return (1);
 	return (0);
 }
 
-// if the user does not specify n_must_eat, it is set to -1
 int	init_info(t_struct *structure, char **argv)
 {
 	int				args_valid;
+	struct	timeval	timevalue;
 
+	gettimeofday(&timevalue, NULL);
 	args_valid = check_args(argv);
 	if (args_valid > 0)
 		return (args_valid);
@@ -89,10 +92,10 @@ int	init_info(t_struct *structure, char **argv)
 		structure->n_must_eat = ft_atol(argv[5]);
 	else	
 		structure->n_must_eat = -1;
-	structure->start_time = get_time_now();
+	structure->start_time = (timevalue.tv_sec * 1000 + timevalue.tv_usec / 1000);
 	if (init_mutexes(structure) != 0)
 		return (1);	
-	structure->one_dead = 0;
+	structure->one_dead_or_done = 0;
 	return (args_valid);
 }
 
@@ -108,9 +111,8 @@ int	init_philosophers(t_struct *structure)
 	{
 		structure->philosophers[i].id = i + 1;
 		structure->philosophers[i].meals = 0;
-	/*	structure->philosophers[i].dead = 0;*/
 		structure->philosophers[i].structure = structure;
-		structure->philosophers[i].last_meal_time = get_time_now();
+		structure->philosophers[i].last_meal_time = get_time_now(structure);
 		structure->philosophers[i].left = structure->philosophers[i].id - 1;
 		if (structure->number_of_philosophers != 1)
 			structure->philosophers[i].right = structure->philosophers[i].id % structure->number_of_philosophers;

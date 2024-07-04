@@ -6,13 +6,22 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:01:08 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/06/24 20:50:10 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:10:32 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long		get_time_now(void)
+void    waiter(t_philo *philosopher, long time)
+{
+	long    start;
+
+	start = get_time_now(philosopher->structure);
+	while ((get_time_now(philosopher->structure) - start) < time && philosopher_dead(philosopher) == 0)
+		usleep(50);
+}
+
+long		get_time_now(t_struct *structure)
 {
 	struct	timeval		timevalue;
 	long				result;
@@ -20,13 +29,8 @@ long		get_time_now(void)
 
 	gettimeofday(&timevalue, NULL);
 	result = timevalue.tv_sec * 1000 + timevalue.tv_usec / 1000;
+	result = result - structure->start_time;
 	return (result);
-}
-
-void	put_error(int error)
-{
-	if (error == 1)
-		write(2, "Error - Malloc error\n", 21);
 }
 
 long ft_atol(const char *str)

@@ -6,78 +6,11 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:24:13 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/02 21:58:56 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/04 20:02:17 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	philosopher_dead(t_philo *philosopher)
-{
-	long	time_now;
-
-	time_now = get_time_now();
-	if (philosopher->structure->one_dead == 1)
-		return (1);
-	if (time_now > (philosopher->last_meal_time + philosopher->structure->time_to_die))
-	{
-		philosopher->structure->one_dead = 1;
-		printf("%ld Philosopher %d died\n", time_now, philosopher->id);
-		return (1);
-	}
-	return (0);
-}
-
-void    waiter(t_philo *philosopher, long time)
-{
-	long	start;
-
-	start = get_time_now();
-	while ((get_time_now() - start) < time && philosopher_dead(philosopher) == 0)
-		usleep(50);
-}
-
-int	philosopher_takes_forks(t_philo *philosopher)
-{
-	if (philosopher->id % 2 == 0)
-		pthread_mutex_lock(&(philosopher->structure->forks[philosopher->right]));
-	else
-		pthread_mutex_lock(&(philosopher->structure->forks[philosopher->left]));
-	if (!philosopher_dead(philosopher))
-		printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
-	if (philosopher->structure->number_of_philosophers == 1)
-                return (waiter(philosopher, philosopher->structure->time_to_die + 100), pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), 1);
-	if (philosopher->id % 2 == 0)
-	{
-		if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->left])) != 0)
-			return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), 1);
-		if (!philosopher_dead(philosopher))
-			printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
-	}
-	else
-	{
-		if (pthread_mutex_lock(&(philosopher->structure->forks[philosopher->right])) != 0)
-			return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left])), 1);
-		if (!philosopher_dead(philosopher))
-			printf("%ld Philosopher %d has taken a fork\n", get_time_now(), philosopher->id);
-	}
-	return (0);
-}
-
-int	philosopher_eats(t_philo *philosopher)
-{
-	printf("%ld Philosopher %d is eating\n", get_time_now(), philosopher->id);
-	philosopher->last_meal_time = get_time_now();
-	waiter(philosopher, philosopher->structure->time_to_eat);
-	return (0);
-}
-
-int	philosopher_sleeps(t_philo *philosopher)
-{
-	printf("%ld Philosopher %d is sleeping\n", get_time_now(), philosopher->id);
-	waiter(philosopher, philosopher->structure->time_to_sleep);
-	return (0);
-}
 
 void	*start_routine(void *philo_pointer)
 {
@@ -85,7 +18,6 @@ void	*start_routine(void *philo_pointer)
 	philosopher = (t_philo *)philo_pointer;
 	while (1)
 	{
-	// break si llega al numero de comidas
 		if (philosopher_takes_forks(philosopher) == 0)
 		{
 			if (philosopher_dead(philosopher))
@@ -98,7 +30,7 @@ void	*start_routine(void *philo_pointer)
 			philosopher_sleeps(philosopher);
 			if (philosopher_dead(philosopher))
 				return (NULL);
-			printf("%ld Philosopher %d is thinking\n", get_time_now(), philosopher->id);
+			printf("%ld Philosopher %d is thinking\n", get_time_now(philosopher->structure), philosopher->id);
 		}
 		if (philosopher_dead(philosopher))
 			return (NULL);
@@ -106,7 +38,14 @@ void	*start_routine(void *philo_pointer)
 	return (NULL);
 }
 
-void	monitor_deaths(t_struct *structure)
+void	stop_setter(t_struct *structure)
+{
+	pthread_mutex_lock(&structure->mutex);
+	structure->one_dead_or_done = 1;
+	pthread_mutex_unlock(&structure->mutex);
+}
+
+void	monitor(t_struct *structure)
 {
 	long	time_now;
 	int		i;
@@ -116,16 +55,22 @@ void	monitor_deaths(t_struct *structure)
 		i = 0;
 		while (i < structure->number_of_philosophers)
 		{
-			time_now = get_time_now();
+			time_now = get_time_now(structure);
     		if (time_now > (structure->philosophers[i].last_meal_time + structure->time_to_die))
     		{
-        		structure->one_dead = 1;
+				stop_setter(structure);
         		printf("%ld Philosopher %d died\n", time_now, structure->philosophers[i].id);
+				printf("%ld Philosopher %d last meal time: %ld\n", time_now, structure->philosophers[i].id, structure->philosophers[i].last_meal_time);
         		return ;
     		}
+			else if (structure->n_must_eat != -1 && structure->philosophers[i].meals >= structure->n_must_eat)
+			{
+				stop_setter(structure);
+				return ;
+			}
 			i++;
 		}
-	}	
+	}
 }
 
 int	run_threads(t_struct *structure)
@@ -138,13 +83,6 @@ int	run_threads(t_struct *structure)
 		pthread_create(&structure->philosophers[i].thread_id, NULL, &start_routine, (void *)&structure->philosophers[i]);
 		i++;
 	}
-	monitor_deaths(structure);
-	i = 0;
-	while (i < structure->number_of_philosophers)
-	{
-		pthread_join(structure->philosophers[i].thread_id, NULL);
-		i++;
-	}
 	return (0);
 }
 
@@ -152,17 +90,20 @@ int	philosophers(char **argv)
 {
 	t_struct	structure;
 	int			result;
+	int			i;
 
+	i = 0;
 	if (init_info(&structure, argv) == 1 || init_philosophers(&structure) == 1)
 	{
 		write(2, "Error - input is not valid\n", 27);
 		return (1);
 	}
 	result = run_threads(&structure);
-	if (result != 0)
+	monitor(&structure);
+	while (i < structure.number_of_philosophers)
 	{
-		put_error(result);
-		return (1);
+		pthread_join(structure.philosophers[i].thread_id, NULL);
+		i++;
 	}
-	return (0);
+	return (result);
 }

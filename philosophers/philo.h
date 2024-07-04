@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/02 21:52:13 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:13:00 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ typedef struct	s_philo
 
 typedef struct  s_struct
 {
-	int				one_dead;
+	pthread_mutex_t	mutex;
+	int				one_dead_or_done;
 	long			start_time;
     long			number_of_philosophers;
     long			time_to_die;
@@ -44,6 +45,12 @@ typedef struct  s_struct
     t_philo         *philosophers;
 }   t_struct;
 
+// tasks.c
+int				philosopher_dead(t_philo *philosopher);
+int				philosopher_takes_forks(t_philo *philosopher);
+int				philosopher_eats(t_philo *philosopher);
+int				philosopher_sleeps(t_philo *philosopher);
+
 // process.c
 int				philosophers(char **argv);
 
@@ -53,7 +60,8 @@ int				init_philosophers(t_struct *structure);
 
 // utils.c
 void			put_error(int error);
-long			get_time_now(void);
+long			get_time_now(t_struct *structure);
 long			ft_atol(const char *str);
+void			waiter(t_philo *philosopher, long time);
 
 #endif
