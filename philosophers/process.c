@@ -14,14 +14,18 @@
 
 void	*start_routine(void *philo_pointer)
 {
-	t_philo *philosopher;
+	t_philo	*philosopher;
+
 	philosopher = (t_philo *)philo_pointer;
 	while (1)
 	{
 		if (philosopher_takes_forks(philosopher) == 0)
 		{
 			if (philosopher_dead(philosopher))
-				return (pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left])), pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right])), NULL);
+				return (pthread_mutex_unlock(&(philosopher->structure
+							->forks[philosopher->left]))
+					, pthread_mutex_unlock(&(philosopher
+							->structure->forks[philosopher->right])), NULL);
 			philosopher_eats(philosopher);
 			pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->left]));
 			pthread_mutex_unlock(&(philosopher->structure->forks[philosopher->right]));

@@ -12,20 +12,32 @@
 
 #include "philo.h"
 
-void    waiter(t_philo *philosopher, long time)
+int	is_empty(char *str)
 {
-	long    start;
+	int	i;
+
+	i = 0;
+	while (str[i] == '\t' || str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (1);
+	return (0);
+}
+
+void	waiter(t_philo *philosopher, long time)
+{
+	long	start;
 
 	start = get_time_now(philosopher->structure);
-	while ((get_time_now(philosopher->structure) - start) < time && philosopher_dead(philosopher) == 0)
+	while ((get_time_now(philosopher->structure) - start)
+		< time && philosopher_dead(philosopher) == 0)
 		usleep(50);
 }
 
-long		get_time_now(t_struct *structure)
+long	get_time_now(t_struct *structure)
 {
-	struct	timeval		timevalue;
-	long				result;
-	
+	struct timeval	timevalue;
+	long			result;	
 
 	gettimeofday(&timevalue, NULL);
 	result = timevalue.tv_sec * 1000 + timevalue.tv_usec / 1000;
@@ -33,10 +45,10 @@ long		get_time_now(t_struct *structure)
 	return (result);
 }
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
-	long result;
-	int sign;
+	long	result;
+	int		sign;
 
 	result = 0;
 	sign = 1;

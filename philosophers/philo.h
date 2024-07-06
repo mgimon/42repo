@@ -20,7 +20,7 @@
 # include <sys/time.h>
 # include <stdio.h>
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	pthread_t		thread_id;
 	int				id;
@@ -31,19 +31,19 @@ typedef struct	s_philo
 	struct s_struct	*structure;
 }	t_philo;
 
-typedef struct  s_struct
+typedef struct s_struct
 {
 	pthread_mutex_t	mutex;
 	int				one_dead_or_done;
 	long			start_time;
-    long			number_of_philosophers;
-    long			time_to_die;
-    long			time_to_eat;
-    long			time_to_sleep;
-    long			n_must_eat;
+	long			number_of_philosophers;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
+	long			n_must_eat;
 	pthread_mutex_t	*forks;
-    t_philo         *philosophers;
-}   t_struct;
+	t_philo			*philosophers;
+}	t_struct;
 
 // tasks.c
 int				philosopher_dead(t_philo *philosopher);
@@ -59,7 +59,7 @@ int				init_info(t_struct *structure, char **argv);
 int				init_philosophers(t_struct *structure);
 
 // utils.c
-void			put_error(int error);
+int				is_empty(char *str);
 long			get_time_now(t_struct *structure);
 long			ft_atol(const char *str);
 void			waiter(t_philo *philosopher, long time);

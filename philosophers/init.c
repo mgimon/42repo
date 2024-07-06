@@ -26,18 +26,6 @@ int	invalid_integer(char *str)
 	return (1);
 }
 
-int	is_empty(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] == '\t' || str[i] == ' ')
-		i++;
-	if (str[i] == '\0')
-		return (1);
-	return (0);
-}
-
 int	check_args(char **argv)
 {
 	int	i;
@@ -78,7 +66,7 @@ int	init_mutexes(t_struct *structure)
 int	init_info(t_struct *structure, char **argv)
 {
 	int				args_valid;
-	struct	timeval	timevalue;
+	struct timeval	timevalue;
 
 	gettimeofday(&timevalue, NULL);
 	args_valid = check_args(argv);
@@ -90,11 +78,12 @@ int	init_info(t_struct *structure, char **argv)
 	structure->time_to_sleep = ft_atol(argv[4]);
 	if (argv[5])
 		structure->n_must_eat = ft_atol(argv[5]);
-	else	
+	else
 		structure->n_must_eat = -1;
-	structure->start_time = (timevalue.tv_sec * 1000 + timevalue.tv_usec / 1000);
+	structure->start_time = (timevalue.tv_sec * 1000
+			+ timevalue.tv_usec / 1000);
 	if (init_mutexes(structure) != 0)
-		return (1);	
+		return (1);
 	structure->one_dead_or_done = 0;
 	return (args_valid);
 }
@@ -104,7 +93,8 @@ int	init_philosophers(t_struct *structure)
 	int	i;
 
 	i = 0;
-	structure->philosophers = malloc(sizeof(t_philo) * structure->number_of_philosophers);
+	structure->philosophers = malloc(sizeof(t_philo)
+			* structure->number_of_philosophers);
 	if (structure->philosophers == NULL)
 		return (1);
 	while (i < structure->number_of_philosophers)
@@ -115,7 +105,8 @@ int	init_philosophers(t_struct *structure)
 		structure->philosophers[i].last_meal_time = get_time_now(structure);
 		structure->philosophers[i].left = structure->philosophers[i].id - 1;
 		if (structure->number_of_philosophers != 1)
-			structure->philosophers[i].right = structure->philosophers[i].id % structure->number_of_philosophers;
+			structure->philosophers[i].right = structure->philosophers[i].id
+				% structure->number_of_philosophers;
 		i++;
 	}
 	return (0);
