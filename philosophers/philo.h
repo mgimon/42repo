@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/04 19:13:00 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 18:53:36 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int				init_info(t_struct *structure, char **argv);
 int				init_philosophers(t_struct *structure);
 
 // utils.c
+void			free_and_destroy(t_struct *structure);
 int				is_empty(char *str);
 long			get_time_now(t_struct *structure);
 long			ft_atol(const char *str);

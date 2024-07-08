@@ -6,11 +6,40 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:01:08 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/04 19:10:32 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 19:44:45 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	free_and_destroy(t_struct *structure)
+{
+	int	i;
+
+	i = 0;
+	if (structure == NULL || structure->philosophers == NULL)
+		return ;
+	if (structure->number_of_philosophers == 1)
+	{
+		free(structure->philosophers);
+		pthread_mutex_destroy(&(structure->mutex));
+		pthread_mutex_destroy(structure->forks);
+		free(structure->forks);
+		return ;
+	}
+	while (i < structure->number_of_philosophers)
+	{
+		if (structure->philosophers[i] != NULL)
+		{
+			free(&(structure->philosophers[i]));
+			pthread_mutex_destroy(&(structure->forks[i]));
+		}
+		if (structure->forks[i] != NULL)
+			free(&(structure->forks[i]));
+		i++;
+	}
+	pthread_mutex_destroy(&(structure->mutex));
+}
 
 int	is_empty(char *str)
 {

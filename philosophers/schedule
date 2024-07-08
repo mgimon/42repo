@@ -6,4 +6,6 @@ PHILOSOPHERS
 - check errores parseo con args desquiciados
 - check leaks
 
+- si el filosofo o cualquier otro filosofo ha muerto (philosopher_dead == 1) soltar el/los tenedores que tenga el filosofo actual
+
 No hacer mas checkeos de muertes, el programa funciona como deberia. En caso contrario, que el corrector corrija la logica. Para 200 filosofos, ninguno muere si el time to die es 1000, y el time to eat y el time to sleep 200
