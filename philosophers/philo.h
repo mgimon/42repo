@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 20:22:38 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 21:09:47 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_struct
 }	t_struct;
 
 // tasks.c
-int				philosopher_dead(t_philo *philosopher);
 int				philosopher_takes_forks(t_philo *philosopher);
 int				philosopher_eats(t_philo *philosopher);
 int				philosopher_sleeps(t_philo *philosopher);
@@ -64,5 +63,8 @@ int				is_empty(char *str);
 long			get_time_now(t_struct *structure);
 long			ft_atol(const char *str);
 void			waiter(t_philo *philosopher, long time);
+
+// utils_2.c
+int				philosopher_dead(t_philo *philosopher);
 
 #endif

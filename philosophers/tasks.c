@@ -6,35 +6,13 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:18:15 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 20:29:12 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 21:08:04 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	philosopher_dead(t_philo *philosopher)
-{
-	long	time_now;
-
-	time_now = get_time_now(philosopher->structure);
-	pthread_mutex_lock(&philosopher->structure->mutex);
-	if (philosopher->structure->one_dead_or_done == 1)
-	{
-		pthread_mutex_unlock(&philosopher->structure->mutex);
-		return (1);
-	}
-	if (time_now > (philosopher->last_meal_time
-			+ philosopher->structure->time_to_die))
-	{
-		philosopher->structure->one_dead_or_done = 1;
-		pthread_mutex_unlock(&(philosopher->structure->mutex));
-		return (1);
-	}
-	pthread_mutex_unlock(&(philosopher->structure->mutex));
-	return (0);
-}
-
-int	philosopher_takes_forks(t_philo *philosopher)
+int	take_first(t_philo *philosopher)
 {
 	if (philosopher->id % 2 == 0)
 		pthread_mutex_lock(&(philosopher
@@ -55,10 +33,11 @@ int	philosopher_takes_forks(t_philo *philosopher)
 	else
 		printf("%ld Philosopher %d has taken a fork\n",
 			get_time_now(philosopher->structure), philosopher->id);
-	if (philosopher->structure->number_of_philosophers == 1)
-		return (waiter(philosopher, philosopher->structure->time_to_die + 100),
-			pthread_mutex_unlock(&(philosopher
-					->structure->forks[philosopher->right])), 1);
+	return (0);
+}
+
+int	take_second(t_philo *philosopher)
+{
 	if (philosopher->id % 2 == 0)
 	{
 		if (pthread_mutex_lock(&(philosopher
@@ -73,12 +52,26 @@ int	philosopher_takes_forks(t_philo *philosopher)
 			return (pthread_mutex_unlock(&(philosopher
 						->structure->forks[philosopher->left])), 1);
 	}
+	return (0);
+}
+
+int	philosopher_takes_forks(t_philo *philosopher)
+{
+	if (take_first(philosopher) != 0)
+		return (1);
+	if (philosopher->structure->number_of_philosophers == 1)
+		return (waiter(philosopher, philosopher->structure->time_to_die + 100),
+			pthread_mutex_unlock(&(philosopher
+					->structure->forks[philosopher->right])), 1);
+	if (take_second(philosopher) != 0)
+		return (1);
 	if (philosopher_dead(philosopher))
 	{
 		pthread_mutex_unlock(&(philosopher
 				->structure->forks[philosopher->left]));
 		pthread_mutex_unlock(&(philosopher
 				->structure->forks[philosopher->right]));
+		return (1);
 	}
 	else
 		printf("%ld Philosopher %d has taken a fork\n",

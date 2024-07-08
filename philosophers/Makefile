@@ -2,6 +2,7 @@ SRCS = init.c \
 		main.c \
 		process.c \
 		utils.c \
+		utils_2.c \
 		tasks.c
 
 OBJS = ${SRCS:.c=.o}
