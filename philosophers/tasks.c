@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:18:15 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 17:34:04 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:11:17 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,17 @@ int	philosopher_takes_forks(t_philo *philosopher)
 	else
 		pthread_mutex_lock(&(philosopher
 				->structure->forks[philosopher->left]));
-	if (!philosopher_dead(philosopher))
+	if (philosopher_dead(philosopher))
+	{
+		if (philosopher->id % 2 == 0)
+			pthread_mutex_unlock(&(philosopher
+					->structure->forks[philosopher->right]));
+		else
+			pthread_mutex_unlock(&(philosopher
+					->structure->forks[philosopher->left]));
+		return (1);
+	}
+	else
 		printf("%ld Philosopher %d has taken a fork\n",
 			get_time_now(philosopher->structure), philosopher->id);
 	if (philosopher->structure->number_of_philosophers == 1)
@@ -55,9 +65,6 @@ int	philosopher_takes_forks(t_philo *philosopher)
 					->structure->forks[philosopher->left])) != 0)
 			return (pthread_mutex_unlock(&(philosopher
 						->structure->forks[philosopher->right])), 1);
-		if (!philosopher_dead(philosopher))
-			printf("%ld Philosopher %d has taken a fork\n",
-				get_time_now(philosopher->structure), philosopher->id);
 	}
 	else
 	{
@@ -65,10 +72,18 @@ int	philosopher_takes_forks(t_philo *philosopher)
 					->structure->forks[philosopher->right])) != 0)
 			return (pthread_mutex_unlock(&(philosopher
 						->structure->forks[philosopher->left])), 1);
-		if (!philosopher_dead(philosopher))
-			printf("%ld Philosopher %d has taken a fork\n",
-				get_time_now(philosopher->structure), philosopher->id);
 	}
+	if (philosopher_dead(philosopher))
+	{
+		pthread_mutex_unlock(&(philosopher
+				->structure->forks[philosopher->left]));
+		pthread_mutex_unlock(&(philosopher
+				->structure->forks[philosopher->right]));
+	}
+	else
+		printf("%ld Philosopher %d has taken a fork\n",
+			get_time_now(philosopher->structure), philosopher->id);
+
 	return (0);
 }
 
@@ -79,8 +94,6 @@ int	philosopher_eats(t_philo *philosopher)
 	philosopher->last_meal_time = get_time_now(philosopher->structure);
 	waiter(philosopher, philosopher->structure->time_to_eat);
 	philosopher->meals++;
-	printf("%ld Philosopher %d has now eaten %ld times\n", get_time_now
-		(philosopher->structure), philosopher->id, philosopher->meals);
 	return (0);
 }
 
