@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 21:09:47 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 22:01:45 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int				philosopher_eats(t_philo *philosopher);
 int				philosopher_sleeps(t_philo *philosopher);
 
 // process.c
+void			*start_routine(void *philo_pointer);
 int				philosophers(char **argv);
 
 // init.c
@@ -65,6 +66,8 @@ long			ft_atol(const char *str);
 void			waiter(t_philo *philosopher, long time);
 
 // utils_2.c
+int				run_threads(t_struct *structure);
 int				philosopher_dead(t_philo *philosopher);
+void			stop_setter(t_struct *structure);
 
 #endif
