@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:18:15 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 20:11:17 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/08 20:29:12 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int	philosopher_takes_forks(t_philo *philosopher)
 	else
 		printf("%ld Philosopher %d has taken a fork\n",
 			get_time_now(philosopher->structure), philosopher->id);
-
 	return (0);
 }
 
