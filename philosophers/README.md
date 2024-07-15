@@ -1,5 +1,5 @@
 # About philosophers
-Philosophers is an exercise designed to practice the creation of multiple threads to solve the classical problem of the philosophers.
+Philosophers is an exercise designed to practice the creation and coordination of multiple threads to solve the classical problem of the philosophers.
 
 Each philosopher should perform a routine consisting of various actions such as eating, thinking or sleeping, but they can only eat by effectively grabbing two objects called forks. This way, the program should be efficient enough to handle scenarios where different philosophers try to grab different forks, ensuring that no philosopher dies of hunger.
 
