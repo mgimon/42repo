@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 22:01:45 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:44:11 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ long			ft_atol(const char *str);
 void			waiter(t_philo *philosopher, long time);
 
 // utils_2.c
+int				ft_atoi(char *str, int *flag);
 int				run_threads(t_struct *structure);
 int				philosopher_dead(t_philo *philosopher);
 void			stop_setter(t_struct *structure);

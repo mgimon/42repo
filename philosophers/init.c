@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 20:22:35 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:48:09 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,18 @@ int	invalid_integer(char *str)
 int	check_args(char **argv)
 {
 	int	i;
+	int	flag;
 
 	i = 1;
+	flag = 0;
 	while (argv[i])
 	{
 		if (is_empty(argv[i]))
 			return (1);
 		if (invalid_integer(argv[i]))
+			return (1);
+		ft_atoi(argv[i], &flag);
+		if (flag != 0)
 			return (1);
 		i++;
 	}
