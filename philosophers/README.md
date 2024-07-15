@@ -3,11 +3,13 @@ Philosophers is an exercise designed to practice the creation of multiple thread
 
 Each philosopher should perform a routine consisting of various actions such as eating, thinking or sleeping, but they can only eat by effectively grabbing two objects called forks. This way, the program should be efficient enough to handle scenarios where different philosophers try to grab different forks, ensuring that no philosopher dies of hunger.
 
+<br>
+
 Executing the program:
 ```
 ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> (optional)<minimum_number_of_meals_before_stop>
 ```
-<br><br>
+<br>
 
 | Execution | Expected result |
 | :--- | :--- |
