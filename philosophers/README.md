@@ -7,6 +7,7 @@ Executing the program:
 ```
 ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> (optional)<minimum_number_of_meals_before_stop>
 ```
+<br><br>
 
 | Execution | Expected result |
 | :--- | :--- |
