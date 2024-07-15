@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 18:18:15 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 21:08:04 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/15 18:05:10 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	philosopher_takes_forks(t_philo *philosopher)
 	if (philosopher->structure->number_of_philosophers == 1)
 		return (waiter(philosopher, philosopher->structure->time_to_die + 100),
 			pthread_mutex_unlock(&(philosopher
-					->structure->forks[philosopher->right])), 1);
+					->structure->forks[philosopher->left])), 1);
 	if (take_second(philosopher) != 0)
 		return (1);
 	if (philosopher_dead(philosopher))
@@ -83,9 +83,13 @@ int	philosopher_eats(t_philo *philosopher)
 {
 	printf("%ld Philosopher %d is eating\n",
 		get_time_now(philosopher->structure), philosopher->id);
+	pthread_mutex_lock(&(philosopher->philomutex));
 	philosopher->last_meal_time = get_time_now(philosopher->structure);
+	pthread_mutex_unlock(&(philosopher->philomutex));
 	waiter(philosopher, philosopher->structure->time_to_eat);
+	pthread_mutex_lock(&(philosopher->philomutex));
 	philosopher->meals++;
+	pthread_mutex_unlock(&(philosopher->philomutex));
 	return (0);
 }
 

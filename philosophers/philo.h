@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:22:59 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/12 14:44:11 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/15 16:52:35 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_philo
 {
 	pthread_t		thread_id;
+	pthread_mutex_t	philomutex;
 	int				id;
 	int				left;
 	int				right;
@@ -34,7 +35,7 @@ typedef struct s_philo
 typedef struct s_struct
 {
 	pthread_mutex_t	mutex;
-	int				one_dead_or_done;
+	int				one_dead;
 	long			start_time;
 	long			number_of_philosophers;
 	long			time_to_die;

@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:25:41 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/12 14:48:09 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/15 18:20:56 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	init_info(t_struct *structure, char **argv)
 			+ timevalue.tv_usec / 1000);
 	if (init_mutexes(structure) != 0)
 		return (1);
-	structure->one_dead_or_done = 0;
+	structure->one_dead = 0;
 	return (args_valid);
 }
 
@@ -112,6 +112,9 @@ int	init_philosophers(t_struct *structure)
 		if (structure->number_of_philosophers != 1)
 			structure->philosophers[i].right = structure->philosophers[i].id
 				% structure->number_of_philosophers;
+		if (pthread_mutex_init(&(structure
+					->philosophers[i].philomutex), NULL) != 0)
+			return (1);
 		i++;
 	}
 	return (0);

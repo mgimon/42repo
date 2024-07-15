@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:24:13 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 22:00:51 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/15 18:31:19 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,32 @@ void	*start_routine(void *philo_pointer)
 	return (NULL);
 }
 
+int	check_meals(t_struct *structure)
+{
+	int	j;
+
+	j = 0;
+	if (structure->n_must_eat == -1)
+		return (0);
+	while (j <= structure->number_of_philosophers)
+	{
+		pthread_mutex_lock(&(structure->philosophers[j].philomutex));
+		if (structure->philosophers[j].meals >= structure->n_must_eat)
+		{
+			pthread_mutex_unlock(&(structure->philosophers[j].philomutex));
+			j++;
+		}
+		else
+			pthread_mutex_unlock(&(structure->philosophers[j].philomutex));
+		if (j >= structure->number_of_philosophers)
+		{
+			stop_setter(structure);
+			return (1);
+		}
+	}
+	return (0);
+}
+
 void	monitor(t_struct *structure)
 {
 	long	time_now;
@@ -60,23 +86,23 @@ void	monitor(t_struct *structure)
 	while (1)
 	{
 		i = 0;
-		while (i++ < structure->number_of_philosophers)
+		while (i < structure->number_of_philosophers)
 		{
+			pthread_mutex_lock(&(structure->philosophers[i].philomutex));
 			time_now = get_time_now(structure);
-			if (time_now > (structure->philosophers[i - 1]
+			if (time_now > (structure->philosophers[i]
 					.last_meal_time + structure->time_to_die))
 			{
 				stop_setter(structure);
 				printf("%ld Philosopher %d died\n",
-					time_now, structure->philosophers[i - 1].id);
+					time_now, structure->philosophers[i].id);
+				pthread_mutex_unlock(&(structure->philosophers[i].philomutex));
 				return ;
 			}
-			else if (structure->n_must_eat != -1 && structure
-				->philosophers[i - 1].meals >= structure->n_must_eat)
-			{
-				stop_setter(structure);
+			pthread_mutex_unlock(&(structure->philosophers[i].philomutex));
+			if (check_meals(structure) != 0)
 				return ;
-			}
+			i++;
 		}
 	}
 }

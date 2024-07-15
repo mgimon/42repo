@@ -6,7 +6,7 @@
 /*   By: mgimon-c <mgimon-c@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 20:01:08 by mgimon-c          #+#    #+#             */
-/*   Updated: 2024/07/08 20:22:32 by mgimon-c         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:32:44 by mgimon-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	free_and_destroy(t_struct *structure)
 		return ;
 	if (structure->number_of_philosophers == 1)
 	{
+		pthread_mutex_destroy(&(structure->philosophers[0].philomutex));
 		free(structure->philosophers);
 		pthread_mutex_destroy(&(structure->mutex));
 		pthread_mutex_destroy(structure->forks);
@@ -29,6 +30,7 @@ void	free_and_destroy(t_struct *structure)
 	}
 	while (i < structure->number_of_philosophers)
 	{
+		pthread_mutex_destroy(&(structure->philosophers[i].philomutex));
 		pthread_mutex_destroy(&(structure->forks[i]));
 		i++;
 	}
