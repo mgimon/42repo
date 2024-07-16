@@ -4,9 +4,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 ## Projects
 <br>
-<div style="display: flex; justify-content: space-between;">
-  <div style="text-align: left;">hey</div>
-  <div style="text-align: right;">yo</div>
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div>hey</div>
+  <div>yo</div>
 </div>
 <div align="center">
   <table style="width:80%; font-size: 20px;">
@@ -31,9 +31,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
     </tr>
   </table>
 </div>
-<div style="display: flex; justify-content: space-between;">
-  <div style="text-align: left;">hey</div>
-  <div style="text-align: right;">yo</div>
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+  <div>hey</div>
+  <div>yo</div>
 </div>
 <br>
 
