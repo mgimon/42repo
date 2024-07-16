@@ -5,7 +5,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 ## Projects
 
 <br>
-upleft
+<div align="left">hey</div>
 <div align="center">
   <table style="width:80%; font-size: 20px;">
     <tr>
@@ -29,7 +29,7 @@ upleft
     </tr>
   </table>
 </div>
-upright
+<div align="right">yo</div>
 <br>
 
 ##
