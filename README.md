@@ -4,13 +4,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 ## Projects
 <br>
-<div>
-  <table style="width: 100%; border: none; border-spacing: 0;">
-    <tr style="border: none;">
-      <td style="border: none; text-align: left; padding: 0;">hey</td>
-      <td style="border: none; text-align: right; padding: 0;">yo</td>
-    </tr>
-  </table>
+<div style="display: flex; justify-content: space-between;">
+  <div>hey</div>
+  <div>yo</div>
 </div>
 <div align="center">
   <table style="width:80%; font-size: 20px;">
@@ -35,13 +31,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
     </tr>
   </table>
 </div>
-<div>
-  <table style="width: 100%; border: none; border-spacing: 0;">
-    <tr style="border: none;">
-      <td style="border: none; text-align: left; padding: 0;">hey</td>
-      <td style="border: none; text-align: right; padding: 0;">yo</td>
-    </tr>
-  </table>
+<div style="display: flex; justify-content: space-between;">
+  <div>hey</div>
+  <div>yo</div>
 </div>
 <br>
 
