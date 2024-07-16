@@ -4,10 +4,12 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 ## Projects
 <br>
+<div align="center">
 <p style="display: flex; justify-content: space-between;">
   <span>hey</span>
   <span>yo</span>
 </p>
+</div>
 <div align="center">
   <table style="width:80%; font-size: 20px;">
     <tr>
@@ -31,10 +33,12 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
     </tr>
   </table>
 </div>
+<div align="center">
 <p style="display: flex; justify-content: space-between;">
   <span>hey</span>
   <span>yo</span>
 </p>
+</div>
 <br>
 
 ##
