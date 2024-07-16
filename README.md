@@ -4,7 +4,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 ## Projects
 <br>
-<div>
+<div align="center">
   <table>
     <tr>
       <td align="left">hey</td>
