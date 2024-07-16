@@ -6,8 +6,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 <br>
 <div align="center">
 <p style="display: flex; justify-content: space-between;">
-  hey&#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199;
-  yo
+  🌟
+  &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199;
+  🌟
 </p>
 </div>
 <div align="center">
@@ -35,8 +36,9 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 </div>
 <div align="center">
 <p style="display: flex; justify-content: space-between;">
-  <span>hey</span>
-  <span>yo</span>
+  🌟
+  &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199;
+  🌟
 </p>
 </div>
 <br>
