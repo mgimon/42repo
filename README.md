@@ -3,24 +3,15 @@
 This is a collection of all my projects to date at 42 Network Barcelona. Each project is aimed at mastering various essential tools and skills for low-level programming and software development. Check them out!
 
 ## Projects
-<style>
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .left {
-    text-align: left;
-  }
-  .right {
-    text-align: right;
-  }
-</style>
 <br>
-  <div class="container">
-    <div class="left">hey</div>
-    <div class="right">yo</div>
-  </div>
+<div>
+  <table>
+    <tr>
+      <td align="left">hey</td>
+      <td align="right">yo</td>
+    </tr>
+  </table>
+</div>
 <div align="center">
   <table style="width:80%; font-size: 20px;">
     <tr>
@@ -44,10 +35,14 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
     </tr>
   </table>
 </div>
-  <div class="container">
-    <div class="left">hey</div>
-    <div class="right">yo</div>
-  </div>
+<div>
+  <table>
+    <tr>
+      <td align="left">hey</td>
+      <td align="right">yo</td>
+    </tr>
+  </table>
+</div>
 <br>
 
 ##
