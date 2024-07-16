@@ -6,8 +6,8 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 <br>
 <div align="center">
 <p style="display: flex; justify-content: space-between;">
-  <span>hey</span>
-  <span>yo</span>
+  <span style="margin-right: 10px">hey</span>
+  <span style="margin-left: 10px">yo</span>
 </p>
 </div>
 <div align="center">
