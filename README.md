@@ -4,11 +4,11 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 
 ## Projects
 <br>
-<div align="center">
-  <table>
-    <tr>
-      <td align="left">hey</td>
-      <td align="right">yo</td>
+<div>
+  <table style="width: 100%; border-collapse: collapse; border: none;">
+    <tr style="border: none;">
+      <td align="left" style="border: none;">hey</td>
+      <td align="right" style="border: none;">yo</td>
     </tr>
   </table>
 </div>
@@ -36,10 +36,10 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
   </table>
 </div>
 <div>
-  <table>
-    <tr>
-      <td align="left">hey</td>
-      <td align="right">yo</td>
+  <table style="width: 100%; border-collapse: collapse; border: none;">
+    <tr style="border: none;">
+      <td align="left" style="border: none;">hey</td>
+      <td align="right" style="border: none;">yo</td>
     </tr>
   </table>
 </div>
