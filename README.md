@@ -11,7 +11,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
   ⭐
 </p>
 </div>
-<div align="center">
+<div align="left">
   <table style="width:80%; font-size: 20px;">
     <tr>
       <th colspan="2">42repo</th>
