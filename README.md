@@ -5,13 +5,6 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 ## Projects
 <br>
 <div align="center">
-<p style="display: flex; justify-content: space-between;">
-  ⭐
-  &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199;
-  ⭐
-</p>
-</div>
-<div align="center">
   <table style="width:80%; font-size: 20px;">
     <tr>
       <th colspan="2">42repo</th>
@@ -33,13 +26,6 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
       <td><a href="https://github.com/mgimon/42repo/tree/master/get_next_line">Get_Next_Line</a></td>
     </tr>
   </table>
-</div>
-<div align="center">
-<p style="display: flex; justify-content: space-between;">
-  ⭐
-  &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199; &#8199;
-  ⭐
-</p>
 </div>
 <br>
 
