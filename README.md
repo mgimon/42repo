@@ -12,7 +12,7 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
 </p>
 </div>
 <div align="center">
-  <table style="width:30%; font-size: 20px;">
+  <table style="width:5%; font-size: 20px;">
     <tr>
       <th colspan="2">42repo</th>
     </tr>
