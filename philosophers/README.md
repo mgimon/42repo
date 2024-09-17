@@ -6,6 +6,7 @@ Each philosopher should perform various actions such as eating, thinking, or sle
 The program might behave slightly differently in different OS.
 
 <br>
+
 ## 🟠 Compilation:
 
 Execute
