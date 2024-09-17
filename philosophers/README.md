@@ -1,9 +1,9 @@
 # About philosophers
-This project is an exercise designed to practice the creation and coordination of multiple threads to solve the classical problem of the philosophers. The threads should operate in an orderly manner, and accessing resources shared between threads might result in data races, which must be prevented from happening.
+This project is an exercise designed to practice the creation and coordination of multiple threads to solve the classical problem of the philosophers. The threads should operate in an orderly manner (since accessing resources shared between threads might result in data races) and the code should make the process efficient enough so that no thread times out (philosopher dies of hunger).
 
-Each philosopher should perform a routine consisting of various actions such as eating, thinking, or sleeping, but they can only eat by successfully grabbing two objects called forks. Thus, the threads should be coordinated in scenarios where different philosophers try to grab different forks, so that no philosopher dies of hunger.
+Each philosopher should perform various actions such as eating, thinking, or sleeping, but they can only eat by successfully grabbing two objects called forks. The code should be able to handle scenarios where different philosophers try to grab different forks, ensuring that nobody starves.
 
-The program might behave differently depending on the OS.
+The program might behave slightly differently in different OS.
 
 <br>
 
