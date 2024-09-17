@@ -9,7 +9,7 @@ The program might behave slightly differently in different OS.
 
 ## 🟠 Compilation:
 
-Execute
+Execute:
 ```
 make
 ```
@@ -31,6 +31,8 @@ Executing the program:
 | ./philo 4 310 200 100 | One philosopher should die |
 
 <br>
+
+##
 
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
