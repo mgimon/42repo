@@ -6,7 +6,14 @@ Each philosopher should perform various actions such as eating, thinking, or sle
 The program might behave slightly differently in different OS.
 
 <br>
+## 🟠 Compilation:
+Execute
+```
+make
+```
+<br>
 
+## 🟠 Execution:
 Executing the program:
 ```
 ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> (optional)<minimum_number_of_meals_before_stop>
@@ -21,11 +28,6 @@ Executing the program:
 | ./philo 4 410 200 200 | No philosopher should die |
 | ./philo 4 310 200 100 | One philosopher should die |
 
-## 🟠 Compilation:
-Execute
-```
-make
-```
 
 ### 🔄 You may also like...
 [-> My profile on the 42 Intranet](https://profile.intra.42.fr/users/mgimon-c)
