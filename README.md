@@ -10,7 +10,8 @@ This is a collection of all my projects to date at 42 Network Barcelona. Each pr
       <th colspan="2">42repo</th>
     </tr>
     <tr>
-    <td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/philosophers">Philosophers</a></td>
+      <td><a href="https://github.com/mgimon/42repo/tree/master/philosophers">Philosophers</a></td>
+      <td><a href="https://github.com/mgimon/42repo/tree/master/minishell">Minishell</a></td>
     </tr>
     <tr>
       <!--<td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/fractol">Fractol</a></td> -->
