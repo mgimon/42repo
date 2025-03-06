@@ -4,11 +4,11 @@ This project is inspired by the world-famous eponymous 90's game Wolfenstein, wh
 
 <div>
   <a href="https://github.com/mgimon/42repo/blob/master/cub3d/gifs/cheese_maze.gif">
-    <img src="https://github.com/mgimon/42repo/raw/master/cub3d/gifs/cheese_maze.gif" width="47%">
+    <img src="https://github.com/mgimon/42repo/raw/master/cub3d/gifs/cheese_maze.gif" width="40%">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://github.com/mgimon/42repo/blob/master/fractol/gifs/subject_map.gif">
-    <img src="https://github.com/mgimon/42repo/raw/master/cub3d/gifs/subject_map.gif" width="47%">
+    <img src="https://github.com/mgimon/42repo/raw/master/cub3d/gifs/subject_map.gif" width="40%">
   </a>
 </div>
 
