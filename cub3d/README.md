@@ -14,10 +14,10 @@ This project is inspired by the world-famous eponymous 90's game Wolfenstein, wh
 
 ## 🟠 Requirements
 
-The program offers Julia and Mandelbrot sets. Using miniLibX, the program should:
-- The program must be written in C
-- The program must use the MiniLibX
-- The program should parse any kind of map as long as it's closed, and any .xpm texture as longs as it has the correct size
+- The code must be written in C.
+- The program should parse any kind of map as long as it respects the guidelines.
+- The program should parse .xpm texture as longs as it has the correct size.
+- The window and events handling must be smooth.
 
 ## 🟠 Compilation
 
