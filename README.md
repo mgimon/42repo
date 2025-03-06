@@ -12,7 +12,7 @@ Check them out!
       <th colspan="2">42repo</th>
     </tr>
     <tr>
-     <td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/minishell">Minishell</a></td> --> 
+     <td colspan="2" align="center"><a href="https://github.com/mgimon/42repo/tree/master/minishell">Minishell</a></td>
     </tr>
     <tr>
       <td><a href="https://github.com/mgimon/42repo/tree/master/philosophers">Philosophers</a></td>
