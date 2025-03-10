@@ -1,6 +1,6 @@
 ## About this repository
 
-This is a collection my first projects at 42 Network in Barcelona. Each project is aimed at mastering various essential tools and skills for imperative programming in C.
+This is a collection of imperative programming projects at 42 Network in Barcelona. Each project is aimed at mastering various essential tools and skills for programming in C. Check them out!
 
 Check them out!
 
